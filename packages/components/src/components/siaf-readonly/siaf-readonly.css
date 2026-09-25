@@ -1,0 +1,67 @@
+:host {
+  display: block;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+}
+
+/**
+ * Readonly Card (UI Kit · 7008:36924):
+ * gap 4 · label Overline 11 Medium uppercase · value row h24 gap 8 ·
+ * Text Bold 14 / Comment Regular 14 · icons 24
+ */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sys-gap-base-xxs, 4px);
+  min-height: var(--siaf-readonly-min-height, 44px);
+  justify-content: center;
+}
+
+.label {
+  font-size: var(--siaf-readonly-label-size, var(--sys-typography-size-overline-1, 11px));
+  line-height: 1;
+  font-weight: var(--sys-typography-weight-medium, 500);
+  letter-spacing: 0.66px;
+  text-transform: uppercase;
+  color: var(--sys-color-text-neutral-low, #6f6f71);
+}
+
+.value-row {
+  display: flex;
+  align-items: center;
+  gap: var(--sys-gap-base-xs, 8px);
+  min-height: 24px;
+  width: 100%;
+  overflow: clip;
+}
+
+.value {
+  font-size: var(--siaf-readonly-value-size, var(--sys-typography-size-body-2, 14px));
+  line-height: 1;
+  letter-spacing: -0.02px;
+  font-weight: var(--sys-typography-weight-bold, 700);
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  word-break: break-word;
+}
+
+:host(.inputs-comment) .value {
+  font-weight: var(--sys-typography-weight-regular, 400);
+  letter-spacing: 0.025px;
+}
+
+.icon {
+  display: inline-flex;
+  flex: none;
+  width: 24px;
+  height: 24px;
+  color: var(--sys-color-icon-states-enabled, #4b4b4d);
+}
+
+.icon:empty {
+  display: none;
+}
+
+.hint {
+  margin-top: 2px;
+  font-size: var(--sys-typography-size-overline-1, 11px);
+  color: var(--sys-color-text-neutral-low, #6f6f71);
+}

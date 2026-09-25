@@ -1,0 +1,51 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+/**
+ * Sidenav / Side Panel Kit — panel w370 · header h56.
+ */
+.nav {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 370px;
+  max-width: 100%;
+  height: 100%;
+  min-height: 240px;
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  border-right: 1px solid var(--sys-color-divider-default, rgba(32, 32, 32, 0.12));
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+}
+
+.heading {
+  box-sizing: border-box;
+  /* Kit Assets/sidenav/header: pad 16 · heading 6 Bold 16 uppercase */
+  min-height: 56px;
+  padding: var(--sys-padding-base-md, 16px);
+  display: flex;
+  align-items: center;
+  font-weight: var(--sys-typography-weight-bold, 700);
+  font-size: var(--sys-typography-size-heading-6, 16px);
+  letter-spacing: 0.02px;
+  text-transform: uppercase;
+  line-height: normal;
+  border-bottom: 1px solid var(--sys-color-divider-default, rgba(32, 32, 32, 0.12));
+  color: var(--sys-color-text-neutral-high, #202020);
+}
+
+.body {
+  flex: 1;
+  overflow: auto;
+  padding: 16px;
+}
+
+.footer {
+  padding: 12px 16px;
+  border-top: 1px solid var(--sys-color-divider-default, rgba(32, 32, 32, 0.12));
+}
+
+.footer:empty {
+  display: none;
+}

@@ -1,0 +1,114 @@
+:host {
+  display: inline-block;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+}
+
+.control {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  letter-spacing: 0.025px;
+}
+
+.control.disabled {
+  cursor: not-allowed;
+  color: var(--sys-color-text-neutral-disabled, #868688);
+}
+
+input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Kit Checkboxes: hit area pad 8 + building block 24×24 */
+.hit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sys-padding-base-xs, 8px);
+  flex: none;
+}
+
+.box {
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  border-radius: 2px;
+  border: 2px solid var(--sys-color-border-states-enabled, rgba(32, 32, 32, 0.4));
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input:checked + .hit .box {
+  background: var(--sys-color-bg-brand-primary, #014899);
+  border-color: var(--sys-color-bg-brand-primary, #014899);
+}
+
+input:indeterminate + .hit .box {
+  background: var(--sys-color-bg-brand-primary, #014899);
+  border-color: var(--sys-color-bg-brand-primary, #014899);
+}
+
+input:checked + .hit .box::after {
+  content: '';
+  width: 6px;
+  height: 11px;
+  border: solid var(--sys-color-text-brand-white, #fff);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-top: -2px;
+}
+
+input:indeterminate + .hit .box::after {
+  content: '';
+  width: 10px;
+  height: 2px;
+  background: var(--sys-color-text-brand-white, #fff);
+  border: 0;
+  transform: none;
+  margin: 0;
+}
+
+input:focus-visible + .hit .box {
+  outline: 2px solid var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  outline-offset: 2px;
+}
+
+/* Kit Disabled: outline #acacad (no opacity genérica) */
+input:disabled + .hit .box {
+  border-color: var(--sys-color-icon-states-disabled, #acacad);
+  background: var(--sys-color-bg-surfaces-disabled, #f4f4f4);
+}
+
+input:disabled:checked + .hit .box,
+input:disabled:indeterminate + .hit .box {
+  background: transparent;
+  border-color: transparent;
+  color: var(--sys-color-icon-states-disabled, #acacad);
+}
+
+input:disabled:checked + .hit .box::after {
+  border-color: var(--sys-color-icon-states-disabled, #acacad);
+}
+
+input:disabled:indeterminate + .hit .box::after {
+  background: var(--sys-color-icon-states-disabled, #acacad);
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  padding-right: 0;
+}
+
+.label:empty {
+  display: none;
+}

@@ -1,0 +1,71 @@
+:host {
+  display: block;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+}
+
+/**
+ * ActionTracker Transversales 3597:23982 · _HistoryCards:
+ * pad 16/24 · gap roles 24 · r8 · ItemRoles gap 8 · min-w 164
+ * Label = Overline 11 Medium uppercase #6f6f71
+ * Value = Body 2 14 Bold #29292a
+ */
+.tracker {
+  /* _HistoryCards: pad 16/24 · sin stroke en Default Transversales 3597:23982 */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px 24px;
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+}
+
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+}
+
+.role {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 164px;
+  flex: 1 1 164px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.field-label {
+  margin: 0;
+  font-size: var(--sys-typography-size-overline-1, 11px);
+  font-weight: var(--sys-typography-weight-medium, 500);
+  letter-spacing: 0.66px;
+  text-transform: uppercase;
+  color: var(--sys-color-text-neutral-low, #6f6f71);
+  line-height: 1;
+}
+
+.field-value {
+  margin: 0;
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-bold, 700);
+  letter-spacing: -0.02px;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  line-height: 1.25;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.actions:empty {
+  display: none;
+}

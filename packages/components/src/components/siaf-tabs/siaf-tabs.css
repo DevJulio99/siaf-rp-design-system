@@ -1,0 +1,75 @@
+:host {
+  display: block;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+}
+
+/**
+ * Tabs content + Tabs item (UI Kit · 2588:135 / 2587:86):
+ * bar h40 · bottom stroke medium 2px rgba(32,32,32,.24) · item pad 8/16
+ * Default: Medium 14 #6f6f71 · Selected Border=True: Bold 14 activated +
+ * border L/R/T 2px · radius top 4 · Selected Border=False: underline brand 2px
+ */
+.list {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  min-height: 40px;
+  height: 40px;
+  border-bottom: var(--sys-border-linear-medium, 2px) solid
+    var(--sys-color-divider-strong, rgba(32, 32, 32, 0.24));
+  box-sizing: border-box;
+}
+
+.tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  height: 40px;
+  min-height: 40px;
+  padding: var(--sys-padding-base-xs, 8px) var(--sys-padding-base-md, 16px);
+  font: inherit;
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-medium, 500);
+  line-height: normal;
+  letter-spacing: 0.025px;
+  color: var(--sys-color-text-neutral-low, #6f6f71);
+  margin-bottom: calc(var(--sys-border-linear-medium, 2px) * -1);
+}
+
+.tab.active {
+  color: var(--sys-color-text-neutral-activated, #014899);
+  font-weight: var(--sys-typography-weight-bold, 700);
+  letter-spacing: -0.02px;
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  border-style: solid;
+  border-color: var(--sys-color-divider-strong, rgba(32, 32, 32, 0.24));
+  border-width: var(--sys-border-linear-medium, 2px);
+  border-bottom-width: 0;
+  border-radius: var(--sys-border-radius-small, 4px)
+    var(--sys-border-radius-small, 4px) 0 0;
+}
+
+/* Border=False (Kit 2588:136): underline brand, no folder border */
+:host(.underline) .tab.active {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  border-bottom: var(--sys-border-linear-medium, 2px) solid
+    var(--sys-color-border-states-active, #014899);
+}
+
+.tab:disabled {
+  color: var(--sys-color-text-neutral-disabled, #868688);
+  cursor: not-allowed;
+}
+
+.tab:focus-visible {
+  outline: 2px solid var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  outline-offset: 2px;
+}
+
+.panel {
+  padding-top: 16px;
+}

@@ -1,0 +1,63 @@
+:host {
+  display: block;
+  flex: 1 1 auto;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.icon {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  line-height: 0;
+}
+
+.bar {
+  flex: 1;
+  height: 8px;
+  min-width: 0;
+  /* Kit Progress/lineal building block: rounded full (100px) */
+  border-radius: var(--sys-border-radius-full, 40px);
+  overflow: hidden;
+  background: var(--sys-color-border-states-disabled, rgba(32, 32, 32, 0.12));
+}
+
+.fill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--sys-color-border-states-active, #014899);
+  transition: width 0.2s ease;
+}
+
+.indeterminate .fill {
+  width: 40%;
+  animation: slide 1.2s ease-in-out infinite;
+}
+
+.pct {
+  flex: 0 0 auto;
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  min-width: 36px;
+  text-align: right;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(350%);
+  }
+}

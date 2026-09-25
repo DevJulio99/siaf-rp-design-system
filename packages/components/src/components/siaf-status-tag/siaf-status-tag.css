@@ -1,0 +1,63 @@
+:host {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+/**
+ * status items tags Kit 6756:221:
+ * pad 0/8 · gap 8 · r4 · icon 20 · caption 12 Regular · bg surface · border feedback
+ */
+.tag {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sys-gap-base-xs, 8px);
+  max-width: 100%;
+  padding: 0 var(--sys-padding-base-xs, 8px);
+  border-radius: var(--sys-border-radius-small, 4px);
+  border: 1px solid transparent;
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  white-space: nowrap;
+}
+
+.tag.size-sm {
+  min-height: 24px;
+  height: 24px;
+}
+
+.tag.size-md {
+  min-height: 32px;
+  height: 32px;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  padding: 4px 0;
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  line-height: 1;
+}
+
+.tone-success {
+  border-color: var(--sys-color-border-feedback-success, #20635e);
+  color: var(--sys-color-text-feedback-success, #20635e);
+}
+.tone-info {
+  border-color: var(--sys-color-border-feedback-info, #002854);
+  color: var(--sys-color-text-feedback-info, #005188);
+}
+.tone-warning {
+  border-color: var(--sys-color-border-feedback-warning, #876727);
+  color: var(--sys-color-text-feedback-warning, #876727);
+}
+.tone-danger {
+  border-color: var(--sys-color-border-feedback-danger, #821c1e);
+  color: var(--sys-color-text-feedback-danger, #821c1e);
+}
+.tone-neutral {
+  border-color: var(--sys-color-border-states-enabled, rgba(32, 32, 32, 0.4));
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}

@@ -1,0 +1,89 @@
+:host {
+  display: block;
+}
+
+/**
+ * Alerts (UI Kit · 6989:873):
+ * pad 16 · radius 8 · gap 8 · título body2 14 Bold · mensaje caption 12 · sin borde
+ */
+.alert {
+  box-sizing: border-box;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--siaf-alert-gap, var(--sys-gap-base-xs, 8px));
+  padding: var(--siaf-alert-padding, var(--sys-padding-base-md, 16px));
+  border-radius: var(--siaf-alert-radius, var(--sys-radius-md, 8px));
+  border: none;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  color: var(--sys-color-text-neutral-high, #202020);
+}
+
+.icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  line-height: 0;
+  color: inherit;
+}
+
+.icon:empty {
+  display: none;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sys-gap-base-xxs, 4px);
+  min-width: 0;
+  flex: 1;
+}
+
+.title {
+  font-weight: var(--sys-typography-weight-bold, 700);
+  font-size: var(--sys-typography-size-body-2, 14px);
+  line-height: 1;
+  letter-spacing: -0.02px;
+}
+
+.title:empty {
+  display: none;
+}
+
+.message {
+  font-weight: var(--sys-typography-weight-regular, 400);
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  line-height: 1;
+}
+
+.message:empty {
+  display: none;
+}
+
+.tone-info {
+  background: var(--sys-color-bg-feedback-light-info, #b0defd);
+  color: var(--sys-color-text-feedback-info, #005188);
+}
+
+.tone-success {
+  background: var(--sys-color-bg-feedback-light-success, #c2e8e5);
+  color: var(--sys-color-text-feedback-success, #20635e);
+}
+
+.tone-warning {
+  background: var(--sys-color-bg-feedback-light-warning, #fceac6);
+  /* Kit: #876727 (~4.43:1 AA borderline). mostaza-900 solo si producto exige AA estricto. */
+  color: var(--sys-color-text-feedback-warning, #876727);
+}
+
+.tone-danger {
+  background: var(--sys-color-bg-feedback-light-danger, #f9bfc1);
+  color: var(--sys-color-text-feedback-danger, #821c1e);
+}
+
+.tone-neutral {
+  background: var(--sys-color-bg-surfaces-surface-high, rgba(32, 32, 32, 0.12));
+  color: var(--sys-color-text-feedback-default, #29292a);
+}

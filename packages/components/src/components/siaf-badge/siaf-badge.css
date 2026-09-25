@@ -1,0 +1,65 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-radius: var(--sys-border-radius-full, 40px);
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  color: var(--sys-color-text-brand-white, #fff);
+  overflow: hidden;
+  line-height: 1;
+}
+
+/**
+ * Badges Kit 7262:6493 / Label Standard 8298:533:
+ * h20 · min-w20 · pad 4 · caption 12 Medium · Accent #d13255
+ */
+:host(.size-md:not(.dot)) {
+  height: 20px;
+  min-width: 20px;
+  padding: var(--sys-padding-base-xxs, 4px);
+}
+
+:host(.size-sm:not(.dot)) {
+  height: 16px;
+  min-width: 16px;
+  padding: 2px 4px;
+}
+
+:host(.dot.size-md) {
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  padding: 0;
+}
+
+:host(.dot.size-sm) {
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+  padding: 0;
+}
+
+:host(.color-accent) {
+  background: var(--sys-color-bg-brand-accent, #d13255);
+}
+
+:host(.color-primary) {
+  background: var(--sys-color-bg-brand-primary, #014899);
+}
+
+.value {
+  display: flex;
+  flex: 1 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 1px;
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  font-weight: var(--sys-typography-weight-medium, 500);
+  line-height: 1;
+  text-align: center;
+}
+
+:host(.size-sm:not(.dot)) .value {
+  font-size: 10px;
+}

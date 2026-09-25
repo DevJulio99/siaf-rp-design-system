@@ -1,0 +1,66 @@
+:host {
+  display: inline-block;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+}
+
+.wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/**
+ * menus Density=Standard Kit 7440:34244:
+ * w280 · pad 8/0 · r8 · items h48
+ */
+.menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 30;
+  box-sizing: border-box;
+  min-width: 280px;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  border-radius: var(--sys-radius-md, 8px);
+  box-shadow: var(--sys-elevation-level-2, 0 2px 8px rgba(32, 32, 32, 0.16));
+}
+
+.menu.compact {
+  /* Density=Compact: items h32 → total shorter */
+}
+
+button {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  padding: 12px 16px;
+  font: inherit;
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  line-height: 1.25;
+}
+
+.menu.compact button {
+  min-height: 32px;
+  padding: 6px 16px;
+}
+
+button:hover:not(:disabled) {
+  background: var(--sys-color-bg-states-light-hover, rgba(32, 32, 32, 0.04));
+}
+
+button:disabled {
+  color: var(--sys-color-text-neutral-disabled, #868688);
+  cursor: not-allowed;
+}
+
+button.danger {
+  color: var(--sys-color-text-feedback-danger, #821c1e);
+}

@@ -1,0 +1,37 @@
+{
+  "name": "@siaf-rp/tokens",
+  "version": "0.1.0",
+  "description": "Design tokens SIAF-RP (CSS custom properties)",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./siaf-tokens.css": "./dist/siaf-tokens.css",
+    "./siaf-tokens.layout.css": "./dist/siaf-tokens.layout.css",
+    "./siaf-tokens.figma.css": "./dist/siaf-tokens.figma.css",
+    "./siaf-fonts.css": "./dist/siaf-fonts.css",
+    "./css/siaf-tokens.css": "./dist/siaf-tokens.css",
+    "./css/siaf-tokens.layout.css": "./dist/siaf-tokens.layout.css",
+    "./css/siaf-tokens.figma.css": "./dist/siaf-tokens.figma.css",
+    "./css/siaf-fonts.css": "./dist/siaf-fonts.css"
+  },
+  "files": [
+    "dist",
+    "figma"
+  ],
+  "scripts": {
+    "build": "node ./scripts/build.mjs",
+    "sync:tokens": "node ./scripts/sync-from-figma.mjs",
+    "sync:tokens:dry": "node ./scripts/sync-from-figma.mjs --dry",
+    "extract:snapshot": "node ./scripts/extract-snapshot-from-css.mjs"
+  },
+  "license": "UNLICENSED"
+}

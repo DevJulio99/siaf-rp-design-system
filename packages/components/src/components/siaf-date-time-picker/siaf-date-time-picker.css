@@ -1,0 +1,181 @@
+:host {
+  display: block;
+  position: relative;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  max-width: 320px;
+}
+
+.field-wrap {
+  cursor: pointer;
+}
+
+.cal-trigger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  cursor: pointer;
+  line-height: 0;
+}
+
+.cal-trigger:disabled {
+  cursor: not-allowed;
+  color: var(--sys-color-text-neutral-disabled, #868688);
+}
+
+/**
+ * Calendar Type=Default Kit 2097:989:
+ * outer pad 8 · gap 8 · r8 · Day 36 · Selected elevation + r40 brand
+ * Header: << <  Mes Año  > >> (icon 20)
+ * Days zero-padded · muted = Disabled #868688 · Today = border hover + text activated
+ */
+.calendar {
+  box-sizing: border-box;
+  /* Kit 2097:989 w268 h309 */
+  width: 268px;
+  margin-top: 8px;
+  padding: var(--sys-padding-base-xs, 8px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sys-gap-base-xs, 8px);
+  align-items: center;
+  border-radius: var(--sys-border-radius-medium, 8px);
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  box-shadow: var(
+    --sys-elevation-level-2,
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 3px 1px rgba(0, 0, 0, 0.12),
+    0 2px 2px rgba(0, 0, 0, 0.14)
+  );
+  z-index: 20;
+}
+
+.cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-height: 36px;
+  padding: var(--sys-padding-base-xs, 8px) 0;
+  box-sizing: border-box;
+}
+
+.nav-group {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sys-gap-base-xs, 8px);
+}
+
+.month-year {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sys-gap-base-xs, 8px);
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-bold, 700);
+  letter-spacing: -0.02px;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}
+
+.nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  cursor: pointer;
+  line-height: 0;
+}
+
+.weekdays {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-bold, 700);
+  letter-spacing: -0.02px;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  text-align: center;
+}
+
+.weekdays span {
+  box-sizing: border-box;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  padding: 4px 8px;
+}
+
+/* Kit: 7 columnas × Day 36 — row + wrap (no column) */
+.grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.day {
+  box-sizing: border-box;
+  width: 36px;
+  height: 36px;
+  margin: 0;
+  padding: 4px 8px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  letter-spacing: 0.0249px;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  cursor: pointer;
+}
+
+.day.muted {
+  color: var(--sys-color-text-neutral-disabled, #868688);
+  cursor: default;
+}
+
+.day.today {
+  border-radius: var(--sys-border-radius-full, 40px);
+  border: 1px solid var(--sys-color-border-states-hover, rgba(1, 72, 153, 0.56));
+  color: var(--sys-color-text-neutral-activated, #014899);
+  padding: 3px 7px;
+}
+
+.day.selected {
+  border-radius: var(--sys-border-radius-full, 40px);
+  background: var(--sys-color-bg-brand-primary, #014899);
+  color: var(--sys-color-text-brand-white, #fff);
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.14),
+    0 2px 1px rgba(0, 0, 0, 0.12),
+    0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.day:not(.muted):not(.selected):hover {
+  border-radius: var(--sys-border-radius-full, 40px);
+  background: var(--sys-color-bg-states-light-disabled, rgba(32, 32, 32, 0.08));
+}
+
+.native {
+  display: none;
+}

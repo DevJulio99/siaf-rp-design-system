@@ -1,0 +1,18 @@
+{
+  "name": "@siaf-rp/playground",
+  "version": "0.1.0",
+  "private": true,
+  "description": "HTML playground + docs catalog for @siaf-rp/components",
+  "type": "module",
+  "scripts": {
+    "prepare:vendor": "node ./scripts/prepare.mjs",
+    "docs": "node ./scripts/build-docs.mjs",
+    "start": "node ./scripts/prepare.mjs && npx --yes serve . -p 4173",
+    "build": "node ./scripts/prepare.mjs"
+  },
+  "dependencies": {
+    "@siaf-rp/components": "0.1.0",
+    "@siaf-rp/tokens": "0.1.0"
+  },
+  "license": "UNLICENSED"
+}

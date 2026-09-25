@@ -1,0 +1,62 @@
+:host {
+  display: block;
+}
+
+/**
+ * Empty Type=Content Kit 7291:5997:
+ * gap 32 · title 22 Bold #202020 · body 14 · text gap 16 · max-w 308
+ */
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  max-width: 308px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}
+
+.icon {
+  color: var(--sys-color-text-neutral-low, #4b4b4d);
+  line-height: 0;
+}
+
+.icon:empty {
+  display: none;
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--sys-typography-size-heading-4, 22px);
+  font-weight: var(--sys-typography-weight-bold, 700);
+  line-height: 27px;
+  color: var(--sys-color-text-neutral-high, #202020);
+}
+
+.desc {
+  margin: 0;
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  line-height: 1.4;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.actions:empty {
+  display: none;
+}

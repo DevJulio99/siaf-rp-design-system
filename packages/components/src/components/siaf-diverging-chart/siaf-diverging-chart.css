@@ -1,0 +1,125 @@
+:host {
+  display: block;
+}
+
+.shell {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sys-padding-base-md, 16px);
+  padding: var(--sys-padding-base-lg, 24px);
+  min-height: 200px;
+  max-width: 682px;
+  border-radius: var(--sys-border-radius-large, 16px);
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  border: 1px solid var(--sys-color-divider-default, rgba(32, 32, 32, 0.12));
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  color: var(--sys-color-text-neutral-high, #202020);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sys-padding-base-xs, 8px);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-bold, 700);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 16px;
+  font-size: var(--sys-typography-size-body-1, 16px);
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}
+
+.leg-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.body {
+  flex: 1;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 12px;
+  align-items: center;
+  min-height: 28px;
+}
+
+.label {
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  color: var(--sys-color-text-neutral-low, #6f6f71);
+  text-align: right;
+  text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bars {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  align-items: center;
+  min-height: 16px;
+}
+
+.half {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.half.left {
+  justify-content: flex-end;
+}
+
+.half.right {
+  justify-content: flex-start;
+}
+
+.axis {
+  width: 1px;
+  height: 28px;
+  background: var(--sys-color-divider-default, rgba(32, 32, 32, 0.12));
+  justify-self: center;
+}
+
+.bar {
+  height: 16px;
+  min-width: 4px;
+  border-radius: var(--sys-border-radius-small, 4px);
+}
+
+.half.left .bar {
+  border-radius: var(--sys-border-radius-small, 4px) 0 0 var(--sys-border-radius-small, 4px);
+}
+
+.half.right .bar {
+  border-radius: 0 var(--sys-border-radius-small, 4px) var(--sys-border-radius-small, 4px) 0;
+}
+
+.footer:empty {
+  display: none;
+}

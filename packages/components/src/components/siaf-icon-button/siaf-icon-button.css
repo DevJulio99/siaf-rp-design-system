@@ -1,0 +1,191 @@
+:host {
+  display: inline-flex;
+  vertical-align: middle;
+  line-height: 0;
+  --siaf-btn-elev-hover:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 3px 1px rgba(0, 0, 0, 0.12),
+    0 2px 2px rgba(0, 0, 0, 0.14);
+  --siaf-btn-elev-pressed:
+    0 5px 5px rgba(0, 0, 0, 0.2),
+    0 3px 14px rgba(0, 0, 0, 0.12),
+    0 8px 10px rgba(0, 0, 0, 0.14);
+}
+
+.btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-style: solid;
+  border-width: var(--sys-border-linear-thin, 1px);
+  border-radius: var(--sys-border-radius-medium, 8px);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--sys-transition-fast, 0.15s ease),
+    color var(--sys-transition-fast, 0.15s ease),
+    border-color var(--sys-transition-fast, 0.15s ease),
+    box-shadow var(--sys-transition-fast, 0.15s ease);
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn.size-md {
+  width: var(--siaf-button-height-md, 40px);
+  height: var(--siaf-button-height-md, 40px);
+  min-width: var(--siaf-button-height-md, 40px);
+  min-height: var(--siaf-button-height-md, 40px);
+}
+
+.btn.size-sm {
+  width: var(--siaf-button-height-sm, 32px);
+  height: var(--siaf-button-height-sm, 32px);
+  min-width: var(--siaf-button-height-sm, 32px);
+  min-height: var(--siaf-button-height-sm, 32px);
+}
+
+.glyph {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  line-height: 0;
+  color: inherit;
+}
+
+.btn.size-sm.variant-standard .glyph {
+  width: 20px;
+  height: 20px;
+}
+
+.glyph siaf-icon {
+  color: inherit;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  background: var(--sys-color-bg-surfaces-disabled, #ededed) !important;
+  color: var(--sys-color-text-neutral-disabled, #868688) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.btn:disabled::before {
+  background: transparent !important;
+}
+
+.variant-filled {
+  background: var(--sys-color-bg-brand-accent, #d13255);
+  color: var(--sys-color-text-brand-white, #fff);
+  border-color: transparent;
+}
+
+.variant-filled:hover:not(:disabled) {
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+.variant-filled:hover:not(:disabled)::before {
+  background: var(--sys-color-bg-states-dark-hover, rgba(32, 32, 32, 0.16));
+}
+
+.variant-filled:active:not(:disabled) {
+  box-shadow: var(--siaf-btn-elev-pressed);
+}
+
+.variant-filled:active:not(:disabled)::before {
+  background: rgba(32, 32, 32, 0.4);
+}
+
+:host(:focus-within) .variant-filled:not(:disabled) {
+  outline: none;
+  border-color: var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+:host(:focus-within) .variant-filled:not(:disabled)::before {
+  background: rgba(32, 32, 32, 0.24);
+}
+
+.variant-filled.activated:not(:disabled) {
+  box-shadow: var(--siaf-btn-elev-pressed);
+}
+
+.variant-outline {
+  background: transparent;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  border-color: var(--sys-color-border-states-enabled, rgba(32, 32, 32, 0.4));
+}
+
+.variant-outline:hover:not(:disabled) {
+  border-color: var(--sys-color-border-states-hover, rgba(1, 72, 153, 0.56));
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+.variant-outline:hover:not(:disabled)::before {
+  background: var(--sys-color-bg-states-light-hover, rgba(32, 32, 32, 0.04));
+}
+
+.variant-outline:active:not(:disabled)::before {
+  background: rgba(32, 32, 32, 0.12);
+}
+
+:host(:focus-within) .variant-outline:not(:disabled) {
+  outline: none;
+  border-color: var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+.variant-outline.activated:not(:disabled) {
+  background: var(--sys-color-bg-states-light-selected, rgba(1, 72, 153, 0.08));
+  border-color: var(--sys-color-border-states-active, #014899);
+  color: var(--sys-color-text-neutral-activated, #014899);
+}
+
+.variant-standard {
+  background: transparent;
+  border-color: transparent;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}
+
+.variant-standard:hover:not(:disabled) {
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+.variant-standard:hover:not(:disabled)::before {
+  background: var(--sys-color-bg-states-light-hover, rgba(32, 32, 32, 0.04));
+}
+
+.variant-standard:active:not(:disabled)::before {
+  background: rgba(32, 32, 32, 0.12);
+}
+
+:host(:focus-within) .variant-standard:not(:disabled) {
+  outline: none;
+  border-color: var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+.variant-standard.activated:not(:disabled) {
+  background: var(--sys-color-bg-states-light-selected, rgba(1, 72, 153, 0.08));
+  color: var(--sys-color-text-neutral-activated, #014899);
+}

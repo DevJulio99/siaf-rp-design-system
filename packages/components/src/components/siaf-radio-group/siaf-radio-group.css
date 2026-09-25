@@ -1,0 +1,102 @@
+:host {
+  display: block;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  font-size: var(--sys-typography-size-body-2, 14px);
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}
+
+.legend {
+  font-weight: var(--sys-typography-weight-medium, 500);
+  font-size: var(--sys-typography-size-body-2, 14px);
+  margin-bottom: 8px;
+  color: var(--sys-color-text-neutral-high, #202020);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+:host(.horizontal) .list {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0;
+  cursor: pointer;
+}
+
+.item.disabled {
+  cursor: not-allowed;
+  color: var(--sys-color-text-neutral-disabled, #868688);
+}
+
+input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.hit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sys-padding-base-xs, 8px);
+  flex: none;
+}
+
+/* Kit Radio building block ≈ 24×24 (misma familia que Checkboxes) */
+.dot {
+  box-sizing: border-box;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid var(--sys-color-border-states-enabled, rgba(32, 32, 32, 0.4));
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input:checked + .hit .dot {
+  border-color: var(--sys-color-bg-brand-primary, #014899);
+}
+
+input:checked + .hit .dot::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--sys-color-bg-brand-primary, #014899);
+}
+
+input:focus-visible + .hit .dot {
+  outline: 2px solid var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  outline-offset: 2px;
+}
+
+/* Kit Radio Disabled: mismo criterio que Checkboxes (sin opacity genérica) */
+input:disabled + .hit .dot {
+  border-color: var(--sys-color-icon-states-disabled, #acacad);
+  background: var(--sys-color-bg-surfaces-disabled, #f4f4f4);
+}
+
+input:disabled:checked + .hit .dot {
+  background: transparent;
+  border-color: transparent;
+}
+
+input:disabled:checked + .hit .dot::after {
+  background: var(--sys-color-icon-states-disabled, #acacad);
+}
+
+.text {
+  display: inline-flex;
+  align-items: center;
+}

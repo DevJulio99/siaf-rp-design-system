@@ -1,0 +1,16 @@
+/**
+ * Tipografía SIAF-RP (producto / UI Kit).
+ *
+ * Fuente base: Inter (token --sys-typography-font-family-base).
+ * Carga vía Google Fonts (misma familia que el DS publicado).
+ *
+ * Preferible en HTML:
+ *
+ *   <link rel="preconnect" href="https://fonts.googleapis.com" />
+ *   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+ *   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+ *
+ * Este archivo es la alternativa vía CSS.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');

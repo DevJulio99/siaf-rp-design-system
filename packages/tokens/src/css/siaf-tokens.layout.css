@@ -1,0 +1,88 @@
+/**
+ * SIAF-RP layout / component metrics (UI Kit)
+ * Measured from published Figma instances. Load after siaf-tokens.css.
+ */
+
+:root {
+  /* Text fields Size=Default | Compact */
+  --siaf-field-height: 40px;
+  --siaf-field-height-compact: 32px;
+  --siaf-field-padding-y: 8px;
+  --siaf-field-padding-x: 16px;
+  --siaf-field-radius: var(--sys-radius-md, 8px);
+  --siaf-field-font-size: var(--sys-typography-size-body-2, 14px);
+
+  /* Readonly Card Vertical — label Overline/1 11 Medium uppercase */
+  --siaf-readonly-label-size: 11px;
+  --siaf-readonly-value-size: 14px;
+  --siaf-readonly-min-height: 44px;
+
+  /* Steps / Vertical stepper */
+  --siaf-step-indicator: 24px;
+  --siaf-step-gap: 16px;
+  --siaf-step-min-height: 54px;
+
+  /* Modals - SIAF */
+  --siaf-modal-width: 500px;
+  --siaf-modal-radius: var(--sys-radius-md, 8px);
+  --siaf-modal-padding-top: 48px;
+  --siaf-modal-padding-x: 24px;
+  --siaf-modal-padding-bottom: 24px;
+  --siaf-modal-gap: 24px;
+
+  /* Table — Cell h48 · Cell header h40 · pad 12/16 (Kit 3022:2382 / 3019:17386) */
+  --siaf-table-row-min-height: 48px;
+  --siaf-table-header-height: 40px;
+
+  /* Uploader — zona many-upload medido: pad 24 · h~142 · radius 8 */
+  --siaf-uploader-min-height: 142px;
+
+  /* Alerts — UI Kit medido: pad 16 · radius 8 · gap 8 · h~68 (sin min fijo) · sin borde */
+  --siaf-alert-padding: 16px;
+  --siaf-alert-radius: var(--sys-radius-md, 8px);
+  --siaf-alert-gap: var(--sys-gap-base-xs, 8px);
+
+  /* Breadcrumb */
+  --siaf-breadcrumb-height: 40px;
+  --siaf-breadcrumb-padding-y: 4px;
+  --siaf-breadcrumb-padding-x: 16px;
+  --siaf-breadcrumb-gap: 4px;
+  --siaf-breadcrumb-font-size: 12px;
+
+  /* Tags */
+  --siaf-tag-height-standard: 32px;
+  --siaf-tag-height-small: 24px;
+  --siaf-tag-radius-flow: 4px;
+
+  /* Pagination */
+  --siaf-pagination-height: 40px;
+  --siaf-pagination-gap: 16px;
+
+  /* Buttons */
+  --siaf-button-height-sm: 32px;
+  --siaf-button-height-md: 40px;
+  --siaf-button-height-lg: 48px;
+
+  /* Side panel */
+  --siaf-side-panel-width: 370px;
+
+  /* Page header */
+  --siaf-page-header-padding-y: 16px;
+  --siaf-page-header-padding-x: 24px;
+  --siaf-page-header-title-size: 22px;
+
+  /* Select = Text fields (cerrado) + menus/Lists (abierto) — medido Figma PAC-CMN 2026-09-22 */
+  --siaf-select-option-height: 48px;
+  --siaf-select-option-padding-y: 12px;
+  --siaf-select-option-padding-x: 16px;
+  --siaf-select-option-radius: 4px;
+  --siaf-select-menu-radius: 8px;
+  --siaf-select-menu-padding: 8px 0;
+  --siaf-select-menu-max-height: 240px;
+  --siaf-select-menu-shadow: 0 4px 12px rgba(32, 32, 32, 0.12);
+
+  /* Content card */
+  --siaf-content-padding-x: 24px;
+  --siaf-content-padding-y: 16px;
+  --siaf-content-radius: var(--sys-radius-md, 8px);
+}

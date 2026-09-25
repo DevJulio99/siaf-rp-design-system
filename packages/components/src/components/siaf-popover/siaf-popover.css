@@ -1,0 +1,54 @@
+:host {
+  display: inline-block;
+}
+
+.wrap {
+  position: relative;
+  display: inline-block;
+}
+
+/**
+ * Popover Type=Full Kit 9059:20293:
+ * w268 · pad 12/0/8 · gap 12 · r4 · title 14 Bold · content pad 0/16
+ */
+.pop {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 40;
+  box-sizing: border-box;
+  width: 268px;
+  padding: 12px 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  border-radius: var(--sys-radius-sm, 4px);
+  box-shadow: var(--sys-elevation-level-2, 0 2px 8px rgba(32, 32, 32, 0.16));
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}
+
+.h {
+  padding: 0 16px;
+  font-weight: var(--sys-typography-weight-bold, 700);
+  font-size: var(--sys-typography-size-body-2, 14px);
+  line-height: 17px;
+}
+
+.b {
+  padding: 0 16px;
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  line-height: 1.4;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.actions:empty {
+  display: none;
+}

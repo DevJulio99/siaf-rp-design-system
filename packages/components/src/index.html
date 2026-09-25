@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SIAF-RP Components — Dev</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/siaf-tokens.css" />
+    <link rel="stylesheet" href="/siaf-tokens.layout.css" />
+    <style>
+      body {
+        margin: 0;
+        padding: 32px;
+        font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+        background: var(--sys-color-bg-surfaces-surface, #fff);
+        color: var(--sys-color-text-neutral-high, #202020);
+      }
+      h1 { font-size: 22px; margin: 0 0 8px; }
+      p.lead { margin: 0 0 16px; color: var(--sys-color-text-neutral-low, #6f6f71); max-width: 720px; }
+      .toc {
+        display: flex; flex-wrap: wrap; gap: 8px 16px;
+        margin: 0 0 32px; padding: 12px 16px;
+        border-radius: 8px;
+        background: var(--sys-color-bg-surfaces-surface-container-low, #f5f5f5);
+        font-size: 13px;
+      }
+      .toc a { color: var(--sys-color-text-brand-primary, #014899); text-decoration: none; }
+      .row { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; align-items: center; }
+      .stack { display: grid; gap: 12px; }
+      section { margin-bottom: 48px; max-width: 960px; scroll-margin-top: 16px; }
+      section.wide { max-width: 1100px; }
+      h2 { font-size: 16px; margin: 0 0 12px; }
+      h3 { font-size: 13px; margin: 16px 0 8px; color: var(--sys-color-text-neutral-low, #6f6f71); font-weight: 600; }
+      .gap-note {
+        margin: 0 0 12px; padding: 12px 16px; border-radius: 8px;
+        background: rgba(209, 50, 85, 0.06); font-size: 13px; line-height: 1.4;
+      }
+      .overlay-demo { position: relative; display: inline-block; vertical-align: top; }
+      .chart-grid {
+        display: grid; gap: 16px;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        margin-top: 12px;
+      }
+      #demo-coverage { font-size: 12px; color: var(--sys-color-text-neutral-low, #6f6f71); margin: 0 0 24px; }
+      #demo-coverage.ok { color: var(--sys-color-text-success-high, #1b7a3d); }
+      #demo-coverage.miss { color: var(--sys-color-text-danger-high, #d13255); }
+      .btn-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    </style>
+    <script type="module" src="/build/siaf-rp.esm.js"></script>
+  </head>
+  <body>
+    <h1>SIAF-RP · Stencil</h1>
+    <p class="lead">
+      Demo de los <strong>56 tags</strong> canónicos (solo piezas Figma). Estado:
+      <code>docs/PARITY-STATUS.md</code>. Gaps: Tonal · Card · Cell Column=*.
+    </p>
+    <p id="demo-coverage">Comprobando cobertura…</p>
+    <nav class="toc" aria-label="Secciones">
+      <a href="#atoms">Atoms</a>
+      <a href="#forms">Forms</a>
+      <a href="#feedback">Feedback</a>
+      <a href="#nav">Nav</a>
+      <a href="#data">Data</a>
+      <a href="#overlay">Overlay</a>
+      <a href="#layout">Layout</a>
+      <a href="#graphics">Graphics</a>
+    </nav>
+
+    <section id="atoms">
+      <h2>Atoms</h2>
+      <div class="row">
+        <siaf-icon name="info" size="lg"></siaf-icon>
+        <siaf-icon name="search" size="md"></siaf-icon>
+        <siaf-icon name="close" aria-label="Cerrar"></siaf-icon>
+      </div>
+      <div class="row" style="align-items: stretch; min-height: 48px">
+        <div style="flex: 1; max-width: 240px"><siaf-divider></siaf-divider></div>
+        <siaf-divider orientation="vertical" style="height: 48px"></siaf-divider>
+      </div>
+      <div class="row">
+        <siaf-button variant="filled">Filled</siaf-button>
+        <siaf-button variant="outlined">Outlined</siaf-button>
+        <siaf-button variant="text">Text</siaf-button>
+        <siaf-icon-button icon="search" aria-label="Buscar" variant="filled"></siaf-icon-button>
+        <siaf-icon-button icon="more_vert" aria-label="Más opciones" variant="outline"></siaf-icon-button>
+        <siaf-icon-button icon="close" aria-label="Cerrar" variant="standard" size="sm"></siaf-icon-button>
+        <div class="btn-row">
+          <siaf-button variant="outlined">Cancelar</siaf-button>
+          <siaf-button variant="filled">Guardar</siaf-button>
+        </div>
+      </div>
+      <p class="gap-note"><strong>Gap:</strong> <code>tonal</code> no existe en Buttons Kit.</p>
+      <div class="row">
+        <siaf-tag>Label</siaf-tag>
+        <siaf-tag selected size="small">Label</siaf-tag>
+        <siaf-input-tag label="UE 012" selected></siaf-input-tag>
+        <siaf-choice-tag label="2026" selected></siaf-choice-tag>
+        <siaf-action-tag label="Agregar" icon="add"></siaf-action-tag>
+        <siaf-status-tag tone="success" icon="check_circle">Completado</siaf-status-tag>
+        <siaf-flow-status-tag tone="neutral" variant="filled">Elaborado</siaf-flow-status-tag>
+        <siaf-record-status-tag tone="danger" icon="info">Inactivo</siaf-record-status-tag>
+        <siaf-badge value="3"></siaf-badge>
+        <siaf-badge tone="primary" value="3"></siaf-badge>
+        <siaf-badge dot></siaf-badge>
+      </div>
+      <div class="row">
+        <siaf-file-tag estado="new"></siaf-file-tag>
+        <siaf-file-tag estado="edit" size="small"></siaf-file-tag>
+        <siaf-period-tag estado="abierto"></siaf-period-tag>
+        <siaf-period-tag estado="cerrado" size="small"></siaf-period-tag>
+        <siaf-conciliation-tag estado="pendiente"></siaf-conciliation-tag>
+        <siaf-conciliation-tag estado="conciliado" size="small"></siaf-conciliation-tag>
+        <siaf-expediente-tag estado="en-tramite"></siaf-expediente-tag>
+        <siaf-expediente-tag estado="archivado" size="small"></siaf-expediente-tag>
+      </div>
+      <div class="row" style="padding: 12px 16px; background: #014899; border-radius: 8px">
+        <siaf-logo variant="blanco" version="simplificado"></siaf-logo>
+        <siaf-logo variant="blanco" version="default"></siaf-logo>
+      </div>
+      <div class="row">
+        <siaf-logo variant="acolor" version="simplificado"></siaf-logo>
+        <siaf-logo variant="negro" version="default"></siaf-logo>
+      </div>
+    </section>
+
+    <section id="forms">
+      <h2>Forms</h2>
+      <div class="stack-fields" style="display: grid; gap: 24px; max-width: 420px">
+        <siaf-input label="Año fiscal" value="2026"></siaf-input>
+        <siaf-text-area label="Observaciones" value="Texto multilínea" max-length="200"></siaf-text-area>
+        <siaf-input label="Con error" value="x" error-text="Dato inválido"></siaf-input>
+        <siaf-readonly label="Entidad" value="UE 012 OGIP" hint="Precargado"></siaf-readonly>
+        <siaf-checkbox label="Acepto condiciones" checked></siaf-checkbox>
+        <siaf-switch label="Notificar" checked></siaf-switch>
+        <siaf-radio-group
+          label="Modalidad"
+          value="P"
+          options='[{"label":"Pública","value":"P"},{"label":"Privada","value":"R"}]'
+        ></siaf-radio-group>
+        <siaf-date-time-picker label="Fecha" value="2026-09-23"></siaf-date-time-picker>
+        <siaf-uploader hint="jpg, png, svg, pdf"></siaf-uploader>
+        <siaf-uploaded-file-card file-name="DocEntregable001.xls" meta="500kb" status="done"></siaf-uploaded-file-card>
+        <div class="row">
+          <siaf-tag selected size="small">Año 2026</siaf-tag>
+          <siaf-tag selected size="small">UE 012</siaf-tag>
+        </div>
+      </div>
+    </section>
+
+    <section id="feedback">
+      <h2>Feedback</h2>
+      <div class="stack">
+        <siaf-alert tone="info"><span slot="title">Title</span>Description</siaf-alert>
+        <siaf-alert tone="success"><span slot="title">Title</span>Description</siaf-alert>
+      </div>
+      <div class="row" style="margin-top: 12px">
+        <siaf-tooltip content="Supporting text">
+          <siaf-button variant="outlined" size="sm">Hover tip</siaf-button>
+        </siaf-tooltip>
+        <siaf-loader></siaf-loader>
+        <siaf-loading-progress value="70"></siaf-loading-progress>
+        <siaf-progress-circular value="50"></siaf-progress-circular>
+        <siaf-button id="toast" variant="outlined">Snackbar</siaf-button>
+      </div>
+      <siaf-empty-state heading="Título" description="Sin registros para mostrar."></siaf-empty-state>
+      <siaf-snackbar id="demo-snack" tone="success" message="Guardado correctamente"></siaf-snackbar>
+    </section>
+
+    <section id="nav">
+      <h2>Nav</h2>
+      <siaf-breadcrumb items='[{"label":"Inicio","href":"#"},{"label":"PAC","href":"#"},{"label":"Elaboración"}]'></siaf-breadcrumb>
+      <div style="margin-top: 16px">
+        <p style="margin: 0 0 8px; font-size: 12px; color: #6f6f71">Steps Small</p>
+        <siaf-steps
+          current="1"
+          steps='[{"id":"1","label":"Contrataciones","description":"Step"},{"id":"2","label":"Procedimiento","description":"Step"},{"id":"3","label":"Validación","description":"Step"}]'
+        ></siaf-steps>
+      </div>
+      <div style="margin-top: 16px">
+        <p style="margin: 0 0 8px; font-size: 12px; color: #6f6f71">Steps Default</p>
+        <siaf-steps
+          size="default"
+          current="1"
+          steps='[{"id":"1","label":"Contrataciones","description":"Step"},{"id":"2","label":"Procedimiento","description":"Step"},{"id":"3","label":"Validación","description":"Step"}]'
+        ></siaf-steps>
+      </div>
+      <div style="margin-top: 16px">
+        <siaf-tabs active-id="a" tabs='[{"id":"a","label":"General"},{"id":"b","label":"Historial"}]'></siaf-tabs>
+      </div>
+      <div class="overlay-demo" style="margin-top: 12px">
+        <siaf-menu items='[{"id":"1","label":"Opción uno"},{"id":"2","label":"Opción dos"},{"id":"3","label":"Eliminar","danger":true}]'></siaf-menu>
+      </div>
+      <div style="margin-top: 12px">
+        <siaf-pagination page="1" total-items="48" page-size="10" show-page-size></siaf-pagination>
+      </div>
+    </section>
+
+    <section id="data" class="wide">
+      <h2>Data</h2>
+      <siaf-list
+        selected-id="1"
+        items='[{"id":"1","label":"Ítem primario","secondary":"Secundario"},{"id":"2","label":"Otro ítem","secondary":"Detalle"}]'
+        style="min-width: 280px; max-width: 360px"
+      ></siaf-list>
+      <div class="row" style="align-items: stretch; margin-top: 16px">
+        <siaf-kpi-card label="Total Activos" value="$1,245,800.00" progress="80"></siaf-kpi-card>
+        <siaf-kpi-card label="Observados" value="128" progress="42" icon-style="warning"></siaf-kpi-card>
+      </div>
+      <div class="row" style="align-items: flex-start; margin-top: 16px">
+        <siaf-timeline
+          items='[{"id":"1","title":"Comisión","time":"01/09","status":"finished"},{"id":"2","title":"Validación","time":"10/09","status":"current"},{"id":"3","title":"Cierre","status":"pending"}]'
+        ></siaf-timeline>
+      </div>
+      <p class="gap-note" style="margin-top: 12px">
+        <strong>Gap:</strong> Cell Column=* = composición en consumidor, no en <code>siaf-table</code>.
+      </p>
+      <siaf-table
+        caption="Vista previa"
+        columns='[{"key":"corr","label":"Correlativo"},{"key":"desc","label":"Descripción"},{"key":"monto","label":"Monto"}]'
+        rows='[{"corr":"0001","desc":"Servicio de limpieza","monto":"S/ 12,000"},{"corr":"0002","desc":"Útiles","monto":"S/ 3,500"}]'
+      ></siaf-table>
+    </section>
+
+    <section id="overlay">
+      <h2>Overlay</h2>
+      <div class="overlay-demo">
+        <siaf-popover heading="Detalle">
+          <siaf-button slot="trigger" variant="outlined" size="sm">Ver más</siaf-button>
+          Texto del popover.
+          <div slot="actions" class="btn-row">
+            <siaf-button variant="text" size="sm">Cancelar</siaf-button>
+            <siaf-button variant="filled" size="sm">Aceptar</siaf-button>
+          </div>
+        </siaf-popover>
+      </div>
+      <siaf-side-nav heading="Módulo PAC" style="max-width: 260px; margin-top: 16px; border: 1px solid rgba(32,32,32,0.12); border-radius: 8px">
+        <siaf-button variant="text">Inicio</siaf-button>
+        <siaf-button variant="text">Bandeja</siaf-button>
+      </siaf-side-nav>
+      <div class="row" style="margin-top: 16px">
+        <siaf-button id="open-modal" variant="outlined">Abrir Modals - SIAF</siaf-button>
+        <siaf-button id="open-panel" variant="outlined">Abrir panel</siaf-button>
+      </div>
+      <siaf-modal id="demo-modal" heading="¿Eliminar documento?" confirm-actions>
+        <img slot="illustration" src="/assets/modals/eliminar-documento.svg" alt="" width="188" height="128" />
+        El documento será eliminado.
+      </siaf-modal>
+      <siaf-side-panel id="demo-panel" heading="Panel lateral">Contenido del panel.</siaf-side-panel>
+    </section>
+
+    <section id="layout" class="wide">
+      <h2>Layout / chrome</h2>
+      <siaf-navbar
+        user-name="Juan Doe Perez Perez"
+        user-office="Office name"
+        user-initials="JP"
+      ></siaf-navbar>
+      <div style="margin-top: 16px">
+        <h2 style="margin:0;font-size:var(--sys-typography-size-heading-5,18px);font-weight:700;color:var(--sys-color-text-neutral-high,#202020)">Content head</h2>
+        <p style="margin:4px 0 0;font-size:var(--sys-typography-size-body-2,14px);color:var(--sys-color-text-neutral-low,#6f6f71)">Register Title and Subtitle</p>
+      </div>
+      <siaf-action-tracker
+        roles='[{"role":"Acción por","user":"Ana Pérez","date":"23/09/2026 08:00:59"}]'
+      ></siaf-action-tracker>
+      <div style="display: grid; gap: 12px; max-width: 640px; margin-top: 16px">
+        <siaf-accordion heading="head panel" open>Cuerpo acordeón.</siaf-accordion>
+        <siaf-collapsible-card heading="Card info" open>Contenido colapsable.</siaf-collapsible-card>
+      </div>
+      <div style="margin-top: 16px; display: flex; gap: 0; border: 1px solid rgba(32,32,32,0.12); border-radius: 8px; max-height: 240px; overflow: hidden">
+        <siaf-sidebar>
+          <siaf-side-nav heading="Navegación">
+            <siaf-button variant="text">Item A</siaf-button>
+            <siaf-button variant="text">Item B</siaf-button>
+          </siaf-side-nav>
+        </siaf-sidebar>
+        <div style="padding: 16px; flex: 1">Contenido (composición consumidor — sin page-shell).</div>
+      </div>
+    </section>
+
+    <section id="graphics" class="wide">
+      <h2>Graphics</h2>
+      <div class="chart-grid">
+        <siaf-bar-chart
+          heading="Bar vertical"
+          legend-label="Activos"
+          data='[{"label":"Ene","value":230},{"label":"Feb","value":300},{"label":"Mar","value":350},{"label":"Abr","value":320},{"label":"May","value":270}]'
+        ></siaf-bar-chart>
+        <siaf-line-chart
+          heading="Tendencia"
+          legend-label="Serie"
+          data='[{"label":"Ene","value":40},{"label":"Feb","value":65},{"label":"Mar","value":30},{"label":"Abr","value":80}]'
+        ></siaf-line-chart>
+        <siaf-diverging-chart
+          heading="Comparativo"
+          left-label="Ingresos"
+          right-label="Gastos"
+          data='[{"label":"Ene","left":40,"right":55},{"label":"Feb","left":60,"right":35},{"label":"Mar","left":25,"right":70}]'
+        ></siaf-diverging-chart>
+        <siaf-stacked-bar-chart
+          heading="Stacked bar"
+          legend-labels='["Serie A","Serie B"]'
+          data='[{"label":"Ene","values":[120,110]},{"label":"Feb","values":[140,90]},{"label":"Mar","values":[100,130]}]'
+        ></siaf-stacked-bar-chart>
+        <siaf-bar-grouped-chart
+          heading="Bar grouped"
+          series-labels='["2024","2025"]'
+          data='[{"label":"Ene","values":[230,180]},{"label":"Feb","values":[300,220]},{"label":"Mar","values":[350,260]}]'
+        ></siaf-bar-grouped-chart>
+      </div>
+    </section>
+
+    <script>
+      const CANONICAL = [
+        'siaf-icon', 'siaf-divider', 'siaf-tag', 'siaf-badge', 'siaf-status-tag',
+        'siaf-flow-status-tag', 'siaf-record-status-tag', 'siaf-file-tag', 'siaf-period-tag',
+        'siaf-conciliation-tag', 'siaf-expediente-tag', 'siaf-logo', 'siaf-button', 'siaf-icon-button',
+        'siaf-input-tag', 'siaf-choice-tag', 'siaf-action-tag',
+        'siaf-checkbox', 'siaf-switch', 'siaf-radio-group', 'siaf-input', 'siaf-text-area', 'siaf-readonly',
+        'siaf-date-time-picker', 'siaf-uploader', 'siaf-uploaded-file-card',
+        'siaf-alert', 'siaf-snackbar', 'siaf-loader', 'siaf-loading-progress',
+        'siaf-progress-circular', 'siaf-empty-state', 'siaf-tooltip',
+        'siaf-breadcrumb', 'siaf-tabs', 'siaf-steps', 'siaf-pagination', 'siaf-menu',
+        'siaf-list', 'siaf-table', 'siaf-kpi-card', 'siaf-timeline',
+        'siaf-modal', 'siaf-popover', 'siaf-side-nav', 'siaf-side-panel',
+        'siaf-accordion', 'siaf-collapsible-card',
+        'siaf-navbar', 'siaf-sidebar', 'siaf-action-tracker',
+        'siaf-bar-chart', 'siaf-line-chart', 'siaf-diverging-chart',
+        'siaf-stacked-bar-chart', 'siaf-bar-grouped-chart',
+      ];
+      const found = new Set(
+        [...document.querySelectorAll('*')].map((el) => el.tagName.toLowerCase()).filter((t) => t.startsWith('siaf-')),
+      );
+      const missing = CANONICAL.filter((t) => !found.has(t));
+      const el = document.getElementById('demo-coverage');
+      if (missing.length === 0) {
+        el.className = 'ok';
+        el.textContent = `Cobertura demo: ${CANONICAL.length}/${CANONICAL.length} tags canónicos.`;
+      } else {
+        el.className = 'miss';
+        el.textContent = `Faltan ${missing.length}: ${missing.join(', ')}`;
+      }
+      document.getElementById('open-modal').onclick = () => { document.getElementById('demo-modal').open = true; };
+      document.getElementById('open-panel').onclick = () => { document.getElementById('demo-panel').open = true; };
+      document.getElementById('toast').onclick = () => { document.getElementById('demo-snack').open = true; };
+      const modal = document.getElementById('demo-modal');
+      modal.addEventListener('siafCancel', () => { modal.open = false; });
+      modal.addEventListener('siafClose', () => { modal.open = false; });
+      modal.addEventListener('siafConfirm', () => { modal.open = false; });
+    </script>
+  </body>
+</html>

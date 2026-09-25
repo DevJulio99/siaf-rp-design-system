@@ -1,0 +1,103 @@
+:host {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%) translateY(120%);
+  z-index: 1100;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+}
+
+:host(.open) {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/**
+ * Snackbar (UI Kit · 7018:15692):
+ * pad 16 · gap 8 · radius 8 · min-h64 · min-w430 · max-w800
+ * bg Neutral rgba(32,32,32,.92) en TODOS los Type
+ * tono vía ícono: Info #54b7fa · Success #7bcdc6 · Warning #f8d184 · Error #f37679
+ */
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Kit Snackbar 7018:15692 — min 430 · max 800 */
+  min-width: 430px;
+  max-width: min(800px, calc(100vw - 48px));
+  min-height: 64px;
+  box-sizing: border-box;
+  padding: 16px;
+  border-radius: var(--sys-radius-md, 8px);
+  background: var(--sys-color-bg-on-surfaces-high, rgba(32, 32, 32, 0.92));
+  color: var(--sys-color-text-brand-white, #fff);
+  box-shadow: var(--sys-shadow-elevation-8, 0 8px 10px rgba(0, 0, 0, 0.14));
+  font-size: var(--sys-typography-size-body-2, 14px);
+  line-height: 1.2;
+}
+
+.icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  color: var(--sys-color-text-brand-white, #fff);
+  line-height: 0;
+}
+
+.tone-info .icon {
+  color: var(--sys-color-icon-snackbar-info, #54b7fa);
+}
+.tone-success .icon {
+  color: var(--sys-color-icon-snackbar-success, #7bcdc6);
+}
+.tone-warning .icon {
+  color: var(--sys-color-icon-snackbar-warning, #f8d184);
+}
+.tone-danger .icon {
+  color: var(--sys-color-icon-snackbar-danger, #f37679);
+}
+
+.msg {
+  flex: 1;
+  min-width: 0;
+}
+
+.action:empty {
+  display: none;
+}
+
+.action ::slotted(*) {
+  color: inherit;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.close {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  border: 0;
+  background: transparent;
+  color: var(--sys-color-text-brand-white, #fff);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 4px;
+  line-height: 0;
+}
+
+.close:focus-visible {
+  outline: 2px solid var(--sys-color-text-brand-white, #fff);
+  outline-offset: 2px;
+}

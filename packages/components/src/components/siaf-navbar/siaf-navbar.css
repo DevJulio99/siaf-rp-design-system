@@ -1,0 +1,200 @@
+:host {
+  display: block;
+  /* hereda a slots light DOM + botones Text en chrome brand */
+  --siaf-button-color: var(--sys-color-text-brand-white, #fff);
+  --siaf-button-hover-bg: var(--sys-color-bg-states-on-brand-hover, rgb(255 255 255 / 0.1));
+  --siaf-button-hover-surface: transparent;
+  --siaf-button-focus-border: rgb(255 255 255 / 0.56);
+  color: var(--sys-color-text-brand-white, #fff);
+}
+
+/**
+ * Navbar Ver Transversales 5104:4022:
+ * h56 · pad 4/16 · justify space-between
+ * Logo cluster gap 24 · end gap 16
+ */
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+  box-sizing: border-box;
+  min-height: 56px;
+  height: 56px;
+  padding: 4px 16px;
+  background: var(--sys-color-bg-brand-primary, #014899);
+  color: var(--sys-color-text-brand-white, #fff);
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+}
+
+.start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sys-gap-base-lg, 24px);
+  flex: 0 0 auto;
+  min-width: 0;
+}
+
+.menu-btn {
+  appearance: none;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  min-height: 40px;
+  padding: 10px;
+  margin: 0;
+  border: 0;
+  border-radius: var(--sys-border-radius-small, 4px);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.menu-btn:focus-visible,
+.icon-btn:focus-visible,
+.profile:focus-visible {
+  outline: 2px solid rgb(255 255 255 / 0.56);
+  outline-offset: 2px;
+}
+
+.menu-btn:hover,
+.icon-btn:hover {
+  background: var(--sys-color-bg-states-on-brand-hover, rgb(255 255 255 / 0.1));
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.logo {
+  display: block;
+  width: 128px;
+  height: 40px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.brand-text {
+  font-weight: var(--sys-typography-weight-bold, 700);
+  font-size: var(--sys-typography-size-body-1, 16px);
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.center {
+  flex: 1;
+  display: flex;
+  gap: 0;
+  align-items: center;
+  min-width: 0;
+  justify-content: center;
+}
+
+.end {
+  display: flex;
+  gap: var(--sys-gap-base-md, 16px);
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0 0 auto;
+}
+
+.icon-btn {
+  appearance: none;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  border-radius: var(--sys-border-radius-small, 4px);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+
+.profile {
+  appearance: none;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  max-width: 100%;
+  min-height: 48px;
+  padding: 4px 8px 4px 12px;
+  margin: 0;
+  border: 0;
+  border-radius: var(--sys-border-radius-medium, 8px);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.profile:hover {
+  background: var(--sys-color-bg-states-on-brand-hover, rgb(255 255 255 / 0.1));
+}
+
+.profile-main {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.avatar {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--sys-border-radius-full, 40px);
+  border: 1px solid var(--sys-color-border-states-white, #fff);
+  background: var(--ref-color-solid-primary-50, #e6edf5);
+  color: var(--sys-color-text-brand-primary, #014899);
+  font-size: var(--sys-typography-size-body-1, 16px);
+  font-weight: var(--sys-typography-weight-medium, 500);
+  letter-spacing: 0.025px;
+  line-height: 1;
+}
+
+.user-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--sys-gap-base-xxs, 4px);
+  min-width: 0;
+  color: var(--sys-color-text-brand-white, #fff);
+}
+
+.user-name {
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-bold, 700);
+  letter-spacing: -0.02px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}
+
+.user-office {
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  line-height: 1.25;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px;
+}

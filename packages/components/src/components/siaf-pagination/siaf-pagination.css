@@ -1,0 +1,173 @@
+:host {
+  display: block;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--siaf-pagination-gap, 16px);
+  min-height: var(--siaf-pagination-height, 40px);
+}
+
+.size {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.size-label {
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  color: var(--sys-color-text-neutral-low, #6f6f71);
+  white-space: nowrap;
+}
+
+.size-field {
+  position: relative;
+  /* Kit Pagination Text fields Compact · w82 (2506:7606) — no inventar 104 */
+  width: 82px;
+  flex-shrink: 0;
+}
+
+/* Kit Pagination Text fields Compact (2506:7606): min-h 32 · pad 4/16 · r8 */
+.trigger {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  /* Kit Compact min-h 32 incl. border 1 (border-box) — line 22 + pad 4×2 + border 2 */
+  height: 32px;
+  min-height: 32px;
+  margin: 0;
+  padding: 4px 16px;
+  border: 1px solid var(--sys-color-border-states-enabled, rgba(32, 32, 32, 0.4));
+  border-radius: var(--sys-border-radius-medium, 8px);
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  cursor: pointer;
+  font: inherit;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}
+
+.trigger:focus-visible,
+.trigger.open {
+  outline: none;
+  border-width: 2px;
+  border-color: var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  padding: 3px 15px;
+}
+
+.value {
+  flex: 1;
+  min-width: 1.5ch;
+  font-size: var(--sys-typography-size-body-2, 14px);
+  line-height: 22px;
+  text-align: left;
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.chevron {
+  display: inline-flex;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  align-items: center;
+  justify-content: center;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  line-height: 0;
+}
+
+.listbox {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  z-index: 30;
+  box-sizing: border-box;
+  min-width: 100%;
+  margin: 0;
+  padding: 4px;
+  list-style: none;
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  border: 1px solid var(--sys-color-divider-default, rgba(32, 32, 32, 0.12));
+  border-radius: var(--sys-border-radius-medium, 8px);
+  box-shadow: var(--sys-shadow-md, 0 8px 24px rgba(16, 24, 40, 0.08));
+}
+
+.option {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-size: var(--sys-typography-size-body-2, 14px);
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  text-align: left;
+}
+
+.option:hover,
+.option.active {
+  background: var(--sys-color-bg-states-light-hover, rgba(32, 32, 32, 0.04));
+}
+
+.option.selected {
+  font-weight: var(--sys-typography-weight-semibold, 600);
+}
+
+.option:focus-visible {
+  outline: 2px solid var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  outline-offset: -2px;
+}
+
+.range {
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  color: var(--sys-color-text-neutral-low, #6f6f71);
+  white-space: nowrap;
+}
+
+.nav {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  height: 40px;
+}
+
+.icon-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 8px;
+  border: 0;
+  border-radius: var(--sys-border-radius-medium, 8px);
+  background: transparent;
+  cursor: pointer;
+  line-height: 0;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}
+
+.icon-btn:hover:not(:disabled) {
+  background: var(--sys-color-bg-states-light-hover, rgba(32, 32, 32, 0.04));
+}
+
+.icon-btn:disabled {
+  color: var(--sys-color-text-neutral-disabled, #868688);
+  cursor: not-allowed;
+}
+
+.icon-btn:focus-visible {
+  outline: 2px solid var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  outline-offset: 2px;
+}

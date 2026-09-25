@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SIAF-RP · Demo Kit Stencil</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/siaf-tokens.css" />
+    <link rel="stylesheet" href="/siaf-tokens.layout.css" />
+    <style>
+      body {
+        margin: 0;
+        background: #f5f5f5;
+        font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+        color: var(--sys-color-text-neutral-high, #202020);
+      }
+      .content-card {
+        margin: 16px 24px 32px;
+        padding: var(--siaf-content-padding-y, 16px) var(--siaf-content-padding-x, 24px);
+        border-radius: var(--siaf-content-radius, 8px);
+        background: #fff;
+        border: 1px solid rgba(32, 32, 32, 0.12);
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        align-items: flex-end;
+      }
+      .stack {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+      }
+      h2 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+      }
+    </style>
+    <script type="module" src="/build/siaf-rp.esm.js"></script>
+    <script nomodule src="/build/siaf-rp.js"></script>
+  </head>
+  <body>
+    <siaf-navbar
+      user-name="Juan Doe Perez Perez"
+      user-office="Office name"
+      user-initials="JP"
+    ></siaf-navbar>
+
+    <header style="padding:16px 24px;background:var(--sys-color-bg-surfaces-surface,#fff)">
+      <h1 style="margin:0;font-size:var(--sys-typography-size-heading-5,18px);font-weight:700;color:var(--sys-color-text-neutral-high,#202020)">Catálogo de componentes</h1>
+      <p style="margin:4px 0 0;font-size:var(--sys-typography-size-body-2,14px);color:var(--sys-color-text-neutral-low,#6f6f71)">Demo del UI Kit en Stencil</p>
+      <div style="margin-top:8px">
+        <siaf-flow-status-tag tone="info" label="Borrador"></siaf-flow-status-tag>
+      </div>
+    </header>
+
+    <div class="content-card">
+      <siaf-breadcrumb
+        items='[{"label":"Inicio","href":"#"},{"label":"Design System","href":"#"},{"label":"Demo Kit"}]'
+      ></siaf-breadcrumb>
+
+      <siaf-alert tone="info">
+        <span slot="title">Sincronización</span>
+        Los tokens de layout (`siaf-tokens.layout.css`) definen alturas y paddings medidos en Figma.
+      </siaf-alert>
+
+      <div class="stack">
+        <h2>Campos y solo lectura</h2>
+        <div class="row">
+          <siaf-input label="Año fiscal" value="2026" style="flex:1;min-width:160px"></siaf-input>
+          <siaf-readonly label="Ente rector" value="DGA" style="flex:1;min-width:160px"></siaf-readonly>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h2>Íconos</h2>
+        <div class="row">
+          <siaf-icon name="search" size="lg"></siaf-icon>
+          <siaf-icon name="filter_list" size="lg"></siaf-icon>
+          <siaf-icon name="upload" size="lg"></siaf-icon>
+          <siaf-icon name="settings" size="lg"></siaf-icon>
+          <siaf-icon name="notifications" size="lg"></siaf-icon>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h2>Tags y botones</h2>
+        <div class="row">
+          <siaf-tag tone="success" size="standard">Standard 32</siaf-tag>
+          <siaf-tag tone="warning" size="small">Small 24</siaf-tag>
+          <siaf-flow-status-tag tone="info">Estado flujo</siaf-flow-status-tag>
+          <siaf-button variant="filled" color="primary" icon="check">Continuar</siaf-button>
+          <siaf-button variant="outlined" color="primary">Cancelar</siaf-button>
+          <siaf-button variant="text" color="primary" icon="refresh">Limpiar</siaf-button>
+        </div>
+      </div>
+
+      <div class="stack">
+        <h2>Tabla + paginación</h2>
+        <siaf-table
+          columns='[
+            {"key":"id","label":"Código","width":"120px","overflow":"truncate"},
+            {"key":"desc","label":"Descripción"},
+            {"key":"monto","label":"Monto","width":"120px"}
+          ]'
+          rows='[
+            {"id":"001","desc":"Servicio de mantenimiento preventivo","monto":"12,500.00"},
+            {"id":"002","desc":"Adquisición de suministros de oficina","monto":"3,200.00"}
+          ]'
+        ></siaf-table>
+        <siaf-pagination total-items="800" page="1" page-size="25" show-page-size></siaf-pagination>
+      </div>
+
+      <div class="stack">
+        <h2>Uploader</h2>
+        <siaf-uploader label="Adjuntar documento" hint="PDF o XLSX · máx. 10 MB"></siaf-uploader>
+      </div>
+
+      <div class="actions">
+        <siaf-button variant="outlined" color="secondary" id="btn-panel">Abrir panel</siaf-button>
+        <siaf-button variant="filled" color="primary" id="btn-snack">Mostrar snackbar</siaf-button>
+      </div>
+    </div>
+
+    <siaf-side-panel id="panel" heading="Detalle">
+      <p>Contenido de ejemplo del side panel.</p>
+      <siaf-button slot="footer" variant="filled" color="primary">Guardar</siaf-button>
+    </siaf-side-panel>
+
+    <siaf-snackbar id="snack" tone="success" message="Cambios guardados"></siaf-snackbar>
+
+    <script>
+      document.getElementById('btn-panel').addEventListener('siafClick', () => {
+        document.getElementById('panel').open = true;
+      });
+      document.getElementById('btn-snack').addEventListener('siafClick', () => {
+        document.getElementById('snack').open = true;
+      });
+    </script>
+  </body>
+</html>

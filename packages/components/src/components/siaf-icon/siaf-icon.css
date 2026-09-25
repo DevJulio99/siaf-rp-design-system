@@ -1,0 +1,53 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  line-height: 0;
+  color: currentColor;
+  box-sizing: border-box;
+  flex: 0 0 auto;
+}
+
+.glyph {
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+}
+
+/* Dimensiones vía atributo reflect `size` (no class: colisionaba con .size-lg del botón) */
+:host([size='xs']) {
+  width: var(--figma-device-sys-sizes-icon-x-small, 12px);
+  height: var(--figma-device-sys-sizes-icon-x-small, 12px);
+}
+:host([size='sm']) {
+  width: var(--figma-device-sys-sizes-icon-small, 16px);
+  height: var(--figma-device-sys-sizes-icon-small, 16px);
+}
+:host([size='md']),
+:host(:not([size])) {
+  width: var(--figma-device-sys-sizes-icon-medium, 20px);
+  height: var(--figma-device-sys-sizes-icon-medium, 20px);
+}
+:host([size='lg']) {
+  width: var(--figma-device-sys-sizes-icon-large, 24px);
+  height: var(--figma-device-sys-sizes-icon-large, 24px);
+}
+:host([size='xl']) {
+  width: var(--figma-device-sys-sizes-icon-x-large, 32px);
+  height: var(--figma-device-sys-sizes-icon-x-large, 32px);
+}
+/* Kit many upload · backup 42 (2608:17426) */
+:host([size='xxl']) {
+  width: 42px;
+  height: 42px;
+}
+
+svg,
+::slotted(svg) {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+  display: block;
+}

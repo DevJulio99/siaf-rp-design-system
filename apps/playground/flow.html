@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SIAF-RP · Piloto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./vendor/siaf-tokens.css" />
+    <link rel="stylesheet" href="./vendor/siaf-tokens.layout.css" />
+    <style>
+      body {
+        margin: 0;
+        background: #f5f5f5;
+        font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+        color: var(--sys-color-text-neutral-high, #202020);
+      }
+      .card {
+        margin: 16px 24px 32px;
+        padding: var(--siaf-content-padding-y, 16px) var(--siaf-content-padding-x, 24px);
+        border-radius: var(--siaf-content-radius, 8px);
+        background: #fff;
+        border: 1px solid rgba(32, 32, 32, 0.12);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 24px;
+      }
+      @media (max-width: 800px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .actions {
+        display: flex;
+        gap: 12px;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+      }
+      .stack {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .row > * {
+        flex: 1;
+        min-width: 160px;
+      }
+      a.nav {
+        color: var(--sys-color-text-brand-primary, #014899);
+        font-size: 14px;
+      }
+    </style>
+    <script type="module" src="./vendor/siaf-rp/siaf-rp.esm.js"></script>
+  </head>
+  <body>
+    <siaf-navbar brand="SIAF-RP · Piloto producto"></siaf-navbar>
+
+    <siaf-page-header
+      heading="Registro de solicitud"
+      subtitle="Flujo de consumo HTML del Design System (sin framework)"
+    >
+      <siaf-flow-status-tag slot="status" tone="info" label="Borrador"></siaf-flow-status-tag>
+      <siaf-button slot="actions" variant="outlined" color="primary" icon="save" id="btn-draft">
+        Guardar borrador
+      </siaf-button>
+    </siaf-page-header>
+
+    <div class="card">
+      <siaf-breadcrumb
+        items='[{"label":"Inicio","href":"./index.html"},{"label":"Solicitudes","href":"#"},{"label":"Nueva"}]'
+      ></siaf-breadcrumb>
+
+      <siaf-alert tone="info">
+        <span slot="title">Piloto bloque 2</span>
+        Simula un flujo real de producto: pasos, formulario, adjunto, tabla y confirmación.
+      </siaf-alert>
+
+      <div class="grid">
+          <siaf-steps
+          orientation="vertical"
+          interactive
+          current="0"
+          id="steps"
+          steps='[
+            {"id":"datos","label":"Datos generales"},
+            {"id":"detalle","label":"Detalle"},
+            {"id":"adjuntos","label":"Adjuntos"},
+            {"id":"resumen","label":"Resumen"}
+          ]'
+        ></siaf-steps>
+
+        <div class="stack">
+          <section id="panel-0" class="stack">
+            <div class="row">
+              <siaf-input id="anio" label="Año fiscal" value="2026" required></siaf-input>
+              <siaf-radio-group
+                id="tipo"
+                label="Tipo de solicitud"
+                options='[{"value":"alta","label":"Alta"},{"value":"mod","label":"Modificación"}]'
+                value="alta"
+              ></siaf-radio-group>
+            </div>
+            <div class="row">
+              <siaf-readonly label="Entidad" value="Unidad ejecutora demo"></siaf-readonly>
+              <siaf-readonly label="Usuario" value="piloto.ds@mef.gob.pe"></siaf-readonly>
+            </div>
+          </section>
+
+          <section id="panel-1" class="stack" hidden>
+            <siaf-input id="desc" label="Descripción" placeholder="Detalle de la necesidad"></siaf-input>
+            <div class="row">
+              <siaf-tag tone="success" size="standard">Prioridad normal</siaf-tag>
+              <siaf-tag tone="warning" size="small">Revisión UE</siaf-tag>
+            </div>
+          </section>
+
+          <section id="panel-2" class="stack" hidden>
+            <siaf-uploader
+              id="up"
+              label="Arrastre el expediente o haga clic"
+              hint="PDF · máx. 10 MB"
+              accept=".pdf"
+            ></siaf-uploader>
+          </section>
+
+          <section id="panel-3" class="stack" hidden>
+            <siaf-table
+              caption="Ítems de la solicitud"
+              columns='[
+                {"key":"cod","label":"Código","width":"120px","overflow":"truncate"},
+                {"key":"desc","label":"Descripción"},
+                {"key":"monto","label":"Monto","width":"120px"}
+              ]'
+              rows='[
+                {"cod":"001","desc":"Servicio de mantenimiento","monto":"12,500.00"},
+                {"cod":"002","desc":"Suministros de oficina","monto":"3,200.00"}
+              ]'
+            ></siaf-table>
+            <siaf-pagination total-items="2" page="1" page-size="25"></siaf-pagination>
+          </section>
+
+          <div class="actions">
+            <siaf-button variant="text" color="secondary" id="btn-back" disabled>Anterior</siaf-button>
+            <siaf-button variant="filled" color="primary" id="btn-next" icon-end="arrow_forward">
+              Continuar
+            </siaf-button>
+            <siaf-button variant="filled" color="primary" id="btn-submit" hidden icon="check">
+              Enviar
+            </siaf-button>
+          </div>
+        </div>
+      </div>
+
+      <a class="nav" href="./docs/index.html">Ver catálogo de variantes (docs)</a>
+    </div>
+
+    <siaf-modal id="modal" heading="¿Enviar solicitud?" confirm-actions cancel-label="Revisar" confirm-label="Enviar">
+      Se notificará a la unidad ejecutora. Esta acción no se puede deshacer desde el piloto.
+    </siaf-modal>
+
+    <siaf-side-panel id="panel" heading="Ayuda del paso">
+      <p id="help-text">Complete los datos generales para continuar.</p>
+      <siaf-button slot="footer" variant="filled" color="primary" id="help-close">Entendido</siaf-button>
+    </siaf-side-panel>
+
+    <siaf-snackbar id="snack" tone="success" message="Borrador guardado"></siaf-snackbar>
+
+    <script>
+      const steps = document.getElementById('steps');
+      const panels = [0, 1, 2, 3].map((i) => document.getElementById('panel-' + i));
+      const btnBack = document.getElementById('btn-back');
+      const btnNext = document.getElementById('btn-next');
+      const btnSubmit = document.getElementById('btn-submit');
+      const helps = [
+        'Complete los datos generales para continuar.',
+        'Agregue la descripción y marcas de prioridad.',
+        'Adjunte el expediente en PDF.',
+        'Revise los ítems y envíe la solicitud.',
+      ];
+      let current = 0;
+
+      function show(i) {
+        current = i;
+        steps.current = i;
+        panels.forEach((p, idx) => (p.hidden = idx !== i));
+        btnBack.disabled = i === 0;
+        btnNext.hidden = i === 3;
+        btnSubmit.hidden = i !== 3;
+        document.getElementById('help-text').textContent = helps[i];
+      }
+
+      btnNext.addEventListener('siafClick', () => {
+        if (current === 0) {
+          const anio = document.getElementById('anio');
+          if (!anio.value) {
+            anio.errorText = 'Campo obligatorio';
+            return;
+          }
+          anio.errorText = '';
+        }
+        show(Math.min(3, current + 1));
+      });
+      btnBack.addEventListener('siafClick', () => show(Math.max(0, current - 1)));
+      steps.addEventListener('siafStepChange', (e) => show(e.detail));
+      document.getElementById('btn-draft').addEventListener('siafClick', () => {
+        document.getElementById('snack').open = true;
+      });
+      btnSubmit.addEventListener('siafClick', () => {
+        document.getElementById('modal').open = true;
+      });
+      document.getElementById('modal').addEventListener('siafConfirm', () => {
+        document.getElementById('modal').open = false;
+        const snack = document.getElementById('snack');
+        snack.tone = 'success';
+        snack.message = 'Solicitud enviada';
+        snack.open = true;
+      });
+      document.getElementById('help-close').addEventListener('siafClick', () => {
+        document.getElementById('panel').open = false;
+      });
+      show(0);
+    </script>
+  </body>
+</html>

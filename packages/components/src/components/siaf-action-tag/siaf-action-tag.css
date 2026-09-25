@@ -1,0 +1,75 @@
+:host {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+.tag {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  margin: 0;
+  border-radius: var(--sys-radius-md, 8px);
+  border: 1px solid var(--sys-color-border-states-enabled, rgba(32, 32, 32, 0.4));
+  background: transparent;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  cursor: pointer;
+  transition:
+    background-color var(--sys-transition-fast, 0.15s ease),
+    border-color var(--sys-transition-fast, 0.15s ease);
+}
+
+.size-standard {
+  height: var(--siaf-tag-height-standard, 32px);
+  padding: 4px 8px;
+}
+
+.size-small {
+  height: var(--siaf-tag-height-small, 24px);
+  padding: 0 8px;
+}
+
+.tag:hover:not(:disabled) {
+  border-color: var(--sys-color-border-states-hover, rgba(1, 72, 153, 0.56));
+  background: var(--sys-color-bg-states-light-hover, rgba(32, 32, 32, 0.04));
+}
+
+.tag:focus-visible {
+  outline: none;
+  border-color: var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+}
+
+.tag:disabled {
+  cursor: not-allowed;
+  background: var(--sys-color-bg-surfaces-disabled, #ededed);
+  border-color: var(--sys-color-border-states-disabled, rgba(32, 32, 32, 0.12));
+  color: var(--sys-color-text-neutral-disabled, #868688);
+}
+
+.ico {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  line-height: 0;
+  color: inherit;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  padding: 4px 0;
+}
+
+.size-small .label {
+  padding: 0;
+}

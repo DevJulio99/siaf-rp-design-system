@@ -1,0 +1,143 @@
+:host {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+/**
+ * Filter tags (UI Kit · 3. Filter tags medido):
+ * Standard h=32 pad 4/8 · Small h=24 pad 0/8 · radius 8 · gap 8 · font 14 Regular
+ * Selected: bg rgba(1,72,153,.08) border/texto #014899
+ * Enabled: border rgba(32,32,32,.4) texto #29292a
+ */
+.tag {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  border-radius: var(--sys-radius-md, 8px);
+  border: 1px solid var(--sys-color-border-states-enabled, rgba(32, 32, 32, 0.4));
+  background: transparent;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: 400;
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}
+
+.size-standard {
+  height: var(--siaf-tag-height-standard, 32px);
+  padding: 4px 8px;
+}
+
+.size-small {
+  height: var(--siaf-tag-height-small, 24px);
+  padding: 0 8px;
+}
+
+/* Filter tags Selected=True (12482:543 / Standard Enabled) */
+.tag.selected,
+.tag.outlined.selected {
+  background: var(--sys-color-bg-states-light-selected, rgba(1, 72, 153, 0.08));
+  border-color: var(--sys-color-border-states-active, #014899);
+  color: var(--sys-color-text-neutral-activated, #014899);
+}
+
+.ico {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  line-height: 0;
+  color: inherit;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 24px;
+  padding: 4px 0;
+  min-width: 0;
+}
+
+/* Soft = tones feedback light (uso status); geometría Filter tags */
+.tone-info.soft {
+  background: var(--sys-color-bg-feedback-light-info, #b0defd);
+  color: var(--sys-color-text-feedback-info, #005188);
+  border-color: transparent;
+}
+.tone-success.soft {
+  background: var(--sys-color-bg-feedback-light-success, #c2e8e5);
+  color: var(--sys-color-text-feedback-success, #20635e);
+  border-color: transparent;
+}
+.tone-warning.soft {
+  background: var(--sys-color-bg-feedback-light-warning, #fceac6);
+  color: var(--sys-color-text-feedback-warning, #876727);
+  border-color: transparent;
+}
+.tone-danger.soft {
+  background: var(--sys-color-bg-feedback-light-danger, #f9bfc1);
+  color: var(--sys-color-text-feedback-danger, #821c1e);
+  border-color: transparent;
+}
+.tone-neutral.soft {
+  background: var(--sys-color-bg-surfaces-surface-high, rgba(32, 32, 32, 0.12));
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  border-color: transparent;
+}
+
+/* Filled = status solid */
+.tone-info.filled {
+  background: var(--sys-color-bg-status-solid-info, #0068b0);
+  color: var(--sys-color-text-brand-white, #fff);
+  border-color: transparent;
+}
+.tone-success.filled {
+  background: var(--sys-color-bg-status-solid-success, #298079);
+  color: var(--sys-color-text-brand-white, #fff);
+  border-color: transparent;
+}
+.tone-warning.filled {
+  background: var(--sys-color-bg-status-solid-warning, #ae8532);
+  color: var(--sys-color-text-brand-white, #fff);
+  border-color: transparent;
+}
+.tone-danger.filled {
+  background: var(--sys-color-bg-status-solid-danger, #a82427);
+  color: var(--sys-color-text-brand-white, #fff);
+  border-color: transparent;
+}
+.tone-neutral.filled {
+  background: var(--sys-color-bg-status-solid-default, #353537);
+  color: var(--sys-color-text-brand-white, #fff);
+  border-color: transparent;
+}
+
+.outlined {
+  background: transparent;
+}
+.tone-info.outlined {
+  color: var(--sys-color-text-feedback-info, #005188);
+  border-color: currentColor;
+}
+.tone-success.outlined {
+  color: var(--sys-color-text-feedback-success, #20635e);
+  border-color: currentColor;
+}
+.tone-warning.outlined {
+  color: var(--sys-color-text-feedback-warning, #876727);
+  border-color: currentColor;
+}
+.tone-danger.outlined {
+  color: var(--sys-color-text-feedback-danger, #821c1e);
+  border-color: currentColor;
+}
+.tone-neutral.outlined {
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  border-color: var(--sys-color-border-states-enabled, rgba(32, 32, 32, 0.4));
+}

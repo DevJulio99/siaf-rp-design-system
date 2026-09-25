@@ -1,0 +1,80 @@
+:host {
+  display: inline-flex;
+}
+
+/**
+ * Loader / Circles Kit 372:9418 — 32×32 default (md).
+ * 8 dots r=3 on circle; opacity trail; rotate.
+ */
+.spinner {
+  position: relative;
+  display: block;
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  flex: none;
+  animation: spin 0.8s linear infinite;
+}
+
+.dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sys-color-bg-brand-primary, #014899);
+  left: 50%;
+  top: 50%;
+  margin: -3px 0 0 -3px;
+  /* Kit 372:9418 — r=3 around cx/cy at 16±13 */
+  transform: rotate(var(--a, 0deg)) translateY(-13px);
+}
+
+.dot:nth-child(1) { --a: 0deg; opacity: 1; }
+.dot:nth-child(2) { --a: 45deg; opacity: 0.85; }
+.dot:nth-child(3) { --a: 90deg; opacity: 0.75; }
+.dot:nth-child(4) { --a: 135deg; opacity: 0.65; }
+.dot:nth-child(5) { --a: 180deg; opacity: 0.45; }
+.dot:nth-child(6) { --a: 225deg; opacity: 0.35; }
+.dot:nth-child(7) { --a: 270deg; opacity: 0.25; }
+.dot:nth-child(8) { --a: 315deg; opacity: 0.1; }
+
+:host(.size-sm) .spinner {
+  width: 16px;
+  height: 16px;
+}
+:host(.size-sm) .dot {
+  width: 3px;
+  height: 3px;
+  margin: -1.5px 0 0 -1.5px;
+  transform: rotate(var(--a, 0deg)) translateY(-6.5px);
+}
+:host(.size-md) .spinner {
+  width: 32px;
+  height: 32px;
+}
+:host(.size-lg) .spinner {
+  width: 48px;
+  height: 48px;
+}
+:host(.size-lg) .dot {
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  transform: rotate(var(--a, 0deg)) translateY(-19.5px);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner {
+    animation: none;
+  }
+  .dot {
+    opacity: 0.55;
+  }
+}

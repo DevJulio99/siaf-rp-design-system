@@ -1,0 +1,64 @@
+{
+  "name": "@siaf-rp/components",
+  "version": "0.1.1",
+  "description": "SIAF-RP Web Components (Stencil)",
+  "type": "module",
+  "main": "./register.js",
+  "module": "./register.js",
+  "types": "./dist/types/components.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/types/components.d.ts",
+      "import": "./register.js",
+      "default": "./register.js"
+    },
+    "./loader": {
+      "types": "./loader/index.d.ts",
+      "import": "./loader/index.js",
+      "require": "./loader/index.cjs.js"
+    },
+    "./components/*": "./dist/components/*",
+    "./dist/siaf-rp/*": "./dist/siaf-rp/*",
+    "./package.json": "./package.json"
+  },
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/siaf-rp/siaf-rp.esm.js",
+  "files": [
+    "dist/",
+    "loader/",
+    "register.js"
+  ],
+  "scripts": {
+    "prepublishOnly": "npm run build",
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil-test",
+    "test:spec": "stencil-test --project spec",
+    "test:unit": "stencil-test --project unit",
+    "test:watch": "stencil-test --watch",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build -o storybook-static",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "@siaf-rp/tokens": "0.1.0"
+  },
+  "devDependencies": {
+    "@stencil/core": "^4.27.0",
+    "@stencil/vitest": "^1.15.1",
+    "@storybook/addon-a11y": "^8.6.14",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-links": "^8.6.14",
+    "@storybook/web-components-vite": "^8.6.14",
+    "axe-core": "^4.13.0",
+    "happy-dom": "^17.4.4",
+    "lit": "^3.3.3",
+    "storybook": "^8.6.14",
+    "vitest": "4.1.0"
+  },
+  "license": "UNLICENSED"
+}

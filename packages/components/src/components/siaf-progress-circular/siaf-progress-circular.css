@@ -1,0 +1,58 @@
+:host {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg {
+  transform: rotate(-90deg);
+}
+
+.track {
+  fill: none;
+  /* Kit 20157:95 — anillo outer r75 / inner r60 ⇒ stroke 15 */
+  stroke: var(--sys-color-divider-default, rgba(32, 32, 32, 0.12));
+  stroke-width: 15;
+}
+
+.prog {
+  fill: none;
+  stroke: var(--sys-color-bg-brand-primary, #014899);
+  stroke-width: 15;
+  stroke-linecap: butt;
+  transition: stroke-dashoffset 0.2s ease;
+}
+
+.label {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  inset: 30% 23%;
+  pointer-events: none;
+}
+
+.caption {
+  margin: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  font-weight: var(--sys-typography-weight-medium, 500);
+  line-height: normal;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}
+
+.pct {
+  margin: 0;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  font-size: var(--sys-typography-size-heading-4, 22px);
+  font-weight: var(--sys-typography-weight-bold, 700);
+  letter-spacing: -0.19px;
+  line-height: normal;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}

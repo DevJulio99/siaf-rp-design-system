@@ -1,0 +1,124 @@
+:host {
+  display: block;
+}
+
+.shell {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sys-padding-base-md, 16px);
+  padding: var(--sys-padding-base-lg, 24px) var(--sys-padding-base-lg, 24px) 0;
+  min-height: 311px;
+  max-width: 682px;
+  border-radius: var(--sys-border-radius-large, 16px);
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  border: 1px solid var(--sys-color-divider-default, rgba(32, 32, 32, 0.12));
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  color: var(--sys-color-text-neutral-high, #202020);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-bold, 700);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  font-size: var(--sys-typography-size-body-1, 16px);
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}
+
+.leg-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.body {
+  flex: 1;
+  padding-bottom: 24px;
+  min-height: 240px;
+}
+
+.graph {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px;
+  min-height: 237px;
+}
+
+.guide {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 28px;
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  text-transform: uppercase;
+  color: var(--sys-color-text-neutral-low, #6f6f71);
+}
+
+.plot {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 237px;
+}
+
+.grid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+.grid-line {
+  height: 1px;
+  background: var(--sys-color-divider-default, rgba(32, 32, 32, 0.12));
+}
+
+.chart {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 203px;
+  display: block;
+}
+
+.x-axis {
+  display: flex;
+  justify-content: space-between;
+  height: 28px;
+  align-items: flex-end;
+}
+
+.axis {
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  text-transform: uppercase;
+  color: var(--sys-color-text-neutral-low, #6f6f71);
+}
+
+.footer:empty {
+  display: none;
+}

@@ -1,0 +1,88 @@
+:host {
+  display: block;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+}
+
+.card {
+  box-sizing: border-box;
+  border: 1px solid var(--sys-color-divider-default, rgba(32, 32, 32, 0.12));
+  border-radius: var(--sys-radius-md, 8px);
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  overflow: hidden;
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 60px;
+  height: 60px;
+  padding: 8px 24px;
+  box-sizing: border-box;
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+}
+
+.indicator {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 24px;
+  border-radius: 0 2px 2px 0;
+  background: var(--sys-color-bg-brand-primary, #014899);
+}
+
+.icon-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 4px;
+  border: 0;
+  border-radius: var(--sys-radius-md, 8px);
+  background: transparent;
+  color: var(--sys-color-icon-states-enabled, #4b4b4d);
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  background: var(--sys-color-bg-states-light-hover, rgba(32, 32, 32, 0.04));
+}
+
+.icon-btn:focus-visible {
+  outline: 2px solid var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  outline-offset: 2px;
+}
+
+.info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 44px;
+}
+
+.heading {
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-medium, 500);
+  color: var(--sys-color-text-neutral-high, #202020);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 16px 24px;
+  box-sizing: border-box;
+  border-top: 1px solid var(--sys-color-divider-default, rgba(32, 32, 32, 0.12));
+  font-size: var(--sys-typography-size-body-2, 14px);
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}

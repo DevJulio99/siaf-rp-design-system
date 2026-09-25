@@ -1,0 +1,43 @@
+:host {
+  display: inline-flex;
+  vertical-align: middle;
+}
+
+/**
+ * file tags Kit 2576:10150:
+ * FILLED · radius 4 · caption 12 · border enabled
+ * Standard h24 pad 4/8 · Small h16 pad 0/8
+ */
+.tag {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  border-radius: var(--sys-border-radius-small, 4px);
+  border: 1px solid var(--sys-color-border-states-enabled, rgba(32, 32, 32, 0.4));
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  line-height: 1;
+  white-space: nowrap;
+  color: var(--sys-color-text-brand-white, #fff);
+}
+
+.tag.size-standard {
+  height: 24px;
+  padding: 4px 8px;
+}
+
+.tag.size-small {
+  height: 16px;
+  padding: 0 8px;
+}
+
+.estado-new {
+  background: var(--sys-color-bg-brand-accent, #d13255);
+}
+
+.estado-edit {
+  background: var(--sys-color-bg-brand-primary, #014899);
+}

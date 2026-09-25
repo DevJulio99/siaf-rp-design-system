@@ -1,0 +1,52 @@
+:host {
+  position: relative;
+  display: inline-flex;
+}
+
+/**
+ * Tooltip Kit 8810:127:
+ * pad 8/16 · r4 · bg on-surfaces/high rgba(32,32,32,.92) · caption 12 Regular
+ * max-w 320 · Elevation 6
+ */
+.tip {
+  position: absolute;
+  z-index: 20;
+  box-sizing: border-box;
+  max-width: 320px;
+  padding: var(--sys-padding-base-xs, 8px) var(--sys-padding-base-md, 16px);
+  border-radius: var(--sys-border-radius-small, 4px);
+  background: var(--sys-color-bg-on-surfaces-high, rgba(32, 32, 32, 0.92));
+  color: var(--sys-color-text-brand-white, #fff);
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  line-height: normal;
+  white-space: normal;
+  pointer-events: none;
+  /* Kit Elevation 6 */
+  box-shadow:
+    0 6px 10px 0 rgba(0, 0, 0, 0.14),
+    0 1px 18px 0 rgba(0, 0, 0, 0.12),
+    0 3px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+.place-top {
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.place-bottom {
+  top: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.place-left {
+  right: calc(100% + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+.place-right {
+  left: calc(100% + 6px);
+  top: 50%;
+  transform: translateY(-50%);
+}

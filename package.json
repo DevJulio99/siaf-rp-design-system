@@ -1,0 +1,30 @@
+{
+  "name": "siaf-rp-design-system",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Design System SIAF-RP (MEF) — tokens + Web Components (Stencil)",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "npm run build -w @siaf-rp/tokens && npm run build -w @siaf-rp/components",
+    "build:tokens": "npm run build -w @siaf-rp/tokens",
+    "build:components": "npm run build -w @siaf-rp/components",
+    "sync:tokens": "npm run sync:tokens -w @siaf-rp/tokens",
+    "dev": "npm run start -w @siaf-rp/components",
+    "test": "npm run test -w @siaf-rp/components",
+    "playground": "npm run start -w @siaf-rp/playground",
+    "docs": "npm run docs -w @siaf-rp/playground",
+    "storybook": "npm run build && npm run storybook -w @siaf-rp/components",
+    "build-storybook": "npm run build && npm run build-storybook -w @siaf-rp/components",
+    "lint": "npm run lint -w @siaf-rp/components"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "overrides": {
+    "vitest": "4.1.0"
+  },
+  "license": "UNLICENSED"
+}

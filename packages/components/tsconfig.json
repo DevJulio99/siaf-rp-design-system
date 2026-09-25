@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "allowUnreachableCode": false,
+    "declaration": false,
+    "experimentalDecorators": true,
+    "lib": ["dom", "es2022"],
+    "moduleResolution": "bundler",
+    "module": "esnext",
+    "target": "es2022",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+    "strict": true,
+    "skipLibCheck": true,
+    "types": ["@stencil/vitest/globals"]
+  },
+  "include": ["src", "vitest.config.ts", "vitest-setup.ts"],
+  "exclude": ["node_modules", "src/**/*.stories.ts", "src/**/*.spec.tsx", "src/**/*.unit.ts"]
+}

@@ -1,0 +1,295 @@
+:host {
+  display: inline-flex;
+  vertical-align: middle;
+  line-height: 0;
+}
+
+/**
+ * Elevations — UI Kit Buttons Status=Hover / Pressed / Focused (8305:2071)
+ */
+:host {
+  --siaf-btn-elev-hover:
+    0 1px 5px rgba(0, 0, 0, 0.2),
+    0 3px 1px rgba(0, 0, 0, 0.12),
+    0 2px 2px rgba(0, 0, 0, 0.14);
+  --siaf-btn-elev-pressed:
+    0 5px 5px rgba(0, 0, 0, 0.2),
+    0 3px 14px rgba(0, 0, 0, 0.12),
+    0 8px 10px rgba(0, 0, 0, 0.14);
+}
+
+.btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sys-gap-base-xs, 8px);
+  margin: 0;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-style: solid;
+  border-width: var(--sys-border-linear-thin, 1px);
+  border-radius: var(--sys-border-radius-medium, 8px);
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  font-weight: var(--sys-typography-weight-medium, 500);
+  line-height: 1;
+  letter-spacing: 0;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    background-color var(--sys-transition-fast, 0.15s ease),
+    color var(--sys-transition-fast, 0.15s ease),
+    border-color var(--sys-transition-fast, 0.15s ease),
+    box-shadow var(--sys-transition-fast, 0.15s ease);
+}
+
+/* State layer — Kit 💡layer state overlay */
+.btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: transparent;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.btn > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn:disabled,
+.btn[aria-disabled='true'] {
+  cursor: not-allowed;
+  opacity: 1;
+  /* Kit Disabled: blanco + overlay 8% ≈ #ededed */
+  background: var(--sys-color-bg-surfaces-disabled, #ededed) !important;
+  color: var(--sys-color-text-neutral-disabled, #868688) !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.btn:disabled::before,
+.btn[aria-disabled='true']::before {
+  background: transparent !important;
+}
+
+/* Sizes — Kit: Default 40 · Small 32 */
+.btn.size-sm {
+  height: var(--siaf-button-height-sm, 32px);
+  min-height: var(--siaf-button-height-sm, 32px);
+  padding: 4px 16px;
+  font-size: var(--sys-typography-size-button-1, 14px);
+}
+
+.btn.size-md {
+  height: var(--siaf-button-height-md, 40px);
+  min-height: var(--siaf-button-height-md, 40px);
+  padding: 8px 16px;
+  font-size: var(--sys-typography-size-button-1, 14px);
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.leading,
+.trailing {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  line-height: 0;
+  color: inherit;
+}
+
+.leading siaf-icon,
+.trailing siaf-icon {
+  color: inherit;
+}
+
+/**
+ * Filled — brand accent #d13255
+ * Hover overlay 16% · Pressed 40% · Focused 24% + border focus
+ */
+.variant-filled.color-primary,
+.variant-filled.color-accent {
+  background: var(--sys-color-bg-brand-accent, #d13255);
+  color: var(--sys-color-text-brand-white, #fff);
+  border-color: transparent;
+}
+
+.variant-filled.color-primary:hover:not(:disabled),
+.variant-filled.color-accent:hover:not(:disabled) {
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+.variant-filled.color-primary:hover:not(:disabled)::before,
+.variant-filled.color-accent:hover:not(:disabled)::before {
+  background: var(--sys-color-bg-states-dark-hover, rgba(32, 32, 32, 0.16));
+}
+
+.variant-filled.color-primary:active:not(:disabled),
+.variant-filled.color-accent:active:not(:disabled) {
+  box-shadow: var(--siaf-btn-elev-pressed);
+}
+
+.variant-filled.color-primary:active:not(:disabled)::before,
+.variant-filled.color-accent:active:not(:disabled)::before {
+  background: rgba(32, 32, 32, 0.4);
+}
+
+/* Kit Status=Focused — :host(:focus-within) fiable en Shadow DOM */
+:host(:focus-within) .variant-filled.color-primary:not(:disabled),
+:host(:focus-within) .variant-filled.color-accent:not(:disabled) {
+  outline: none;
+  border-color: var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+:host(:focus-within) .variant-filled.color-primary:not(:disabled)::before,
+:host(:focus-within) .variant-filled.color-accent:not(:disabled)::before {
+  background: rgba(32, 32, 32, 0.24);
+}
+
+.variant-filled.color-secondary {
+  background: var(--sys-color-bg-brand-secondary, #4b4b4d);
+  color: var(--sys-color-text-brand-white, #fff);
+  border-color: transparent;
+}
+
+.variant-filled.color-secondary:hover:not(:disabled) {
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+.variant-filled.color-secondary:hover:not(:disabled)::before {
+  background: var(--sys-color-bg-states-dark-hover, rgba(32, 32, 32, 0.16));
+}
+
+.variant-filled.color-secondary:active:not(:disabled) {
+  box-shadow: var(--siaf-btn-elev-pressed);
+}
+
+.variant-filled.color-secondary:active:not(:disabled)::before {
+  background: rgba(32, 32, 32, 0.4);
+}
+
+.variant-filled.color-danger {
+  background: var(--sys-color-bg-feedback-danger, #d13255);
+  color: var(--sys-color-text-brand-white, #fff);
+  border-color: transparent;
+}
+
+.variant-filled.color-danger:hover:not(:disabled) {
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+.variant-filled.color-danger:hover:not(:disabled)::before {
+  background: var(--sys-color-bg-states-dark-hover, rgba(32, 32, 32, 0.16));
+}
+
+.variant-filled.color-danger:active:not(:disabled) {
+  box-shadow: var(--siaf-btn-elev-pressed);
+}
+
+.variant-filled.color-danger:active:not(:disabled)::before {
+  background: rgba(32, 32, 32, 0.4);
+}
+
+/**
+ * Outline — Kit Variant=Outline
+ */
+.variant-outlined {
+  background: transparent;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  border-color: var(--sys-color-border-states-enabled, rgba(32, 32, 32, 0.4));
+}
+
+.variant-outlined:hover:not(:disabled) {
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  border-color: var(--sys-color-border-states-hover, rgba(1, 72, 153, 0.56));
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+.variant-outlined:hover:not(:disabled)::before {
+  background: var(--sys-color-bg-states-light-hover, rgba(32, 32, 32, 0.04));
+}
+
+.variant-outlined:active:not(:disabled) {
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  border-color: var(--sys-color-border-states-enabled, rgba(32, 32, 32, 0.4));
+  box-shadow: var(--siaf-btn-elev-pressed);
+}
+
+.variant-outlined:active:not(:disabled)::before {
+  background: rgba(32, 32, 32, 0.12);
+}
+
+:host(:focus-within) .variant-outlined:not(:disabled) {
+  outline: none;
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  border-color: var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+:host(:focus-within) .variant-outlined:not(:disabled)::before {
+  background: rgba(32, 32, 32, 0.12);
+}
+
+.variant-outlined.color-danger {
+  color: var(--sys-color-text-feedback-danger, #821c1e);
+  border-color: var(--sys-color-border-feedback-danger, #821c1e);
+}
+
+/**
+ * Text — Kit Variant=Text
+ * `--siaf-button-*` hereda del chrome (p.ej. Navbar brand) vía custom properties.
+ */
+.variant-text {
+  background: transparent;
+  border-color: transparent;
+  color: var(--siaf-button-color, var(--sys-color-text-neutral-medium, #29292a));
+}
+
+.variant-text:hover:not(:disabled) {
+  background: var(--siaf-button-hover-surface, var(--sys-color-bg-surfaces-surface, #fff));
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+.variant-text:hover:not(:disabled)::before {
+  background: var(--siaf-button-hover-bg, var(--sys-color-bg-states-light-hover, rgba(32, 32, 32, 0.04)));
+}
+
+.variant-text:active:not(:disabled) {
+  background: var(--siaf-button-hover-surface, var(--sys-color-bg-surfaces-surface, #fff));
+  box-shadow: var(--siaf-btn-elev-pressed);
+}
+
+.variant-text:active:not(:disabled)::before {
+  background: var(--siaf-button-hover-bg, rgba(32, 32, 32, 0.12));
+}
+
+:host(:focus-within) .variant-text:not(:disabled) {
+  outline: none;
+  background: var(--siaf-button-hover-surface, var(--sys-color-bg-surfaces-surface, #fff));
+  border-color: var(--siaf-button-focus-border, var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8)));
+  box-shadow: var(--siaf-btn-elev-hover);
+}
+
+:host(:focus-within) .variant-text:not(:disabled)::before {
+  background: var(--siaf-button-hover-bg, rgba(32, 32, 32, 0.12));
+}
+
+.variant-text.color-danger,
+.variant-text.color-accent {
+  color: var(--sys-color-text-feedback-danger, #821c1e);
+}
+

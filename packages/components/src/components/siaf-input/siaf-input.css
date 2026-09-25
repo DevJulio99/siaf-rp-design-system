@@ -1,0 +1,201 @@
+:host {
+  display: block;
+  box-sizing: border-box;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  color: var(--sys-color-text-neutral-high, #202020);
+}
+
+:host *,
+:host *::before,
+:host *::after {
+  box-sizing: border-box;
+}
+
+/* Envoltorio: label es sibling de .field (no hijo) para que el stroke no cruce glifos */
+.control {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: var(--sys-gap-base-xs, 8px);
+  min-height: var(--siaf-field-height, 40px);
+  width: 100%;
+  padding: var(--siaf-field-padding-y, 8px) var(--siaf-field-padding-x, 16px);
+  border-radius: var(--siaf-field-radius, var(--sys-border-radius-medium, 8px));
+  border: 1px solid var(--sys-color-border-states-enabled, rgba(32, 32, 32, 0.4));
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+  transition:
+    border-color var(--sys-transition-fast, 0.15s ease),
+    box-shadow var(--sys-transition-fast, 0.15s ease);
+}
+
+:host(.compact) .field {
+  min-height: var(--siaf-field-height-compact, 32px);
+  padding: 4px var(--siaf-field-padding-x, 16px);
+}
+
+/* Label notch — UI Kit Text fields 7524:7106 (Label Container top -10 · left 12)
+ * Sibling de .field + fondo surface opaco; z-index > field. Prohibido z-index:-1.
+ */
+.label-wrap {
+  position: absolute;
+  left: 12px;
+  top: -10px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: calc(100% - 24px);
+  border-radius: var(--sys-border-radius-small, 4px);
+  pointer-events: none;
+}
+
+.label {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 1px;
+  margin: 0;
+  padding: 0 4px;
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  font-weight: var(--sys-typography-weight-medium, 500);
+  line-height: 1;
+  color: var(--sys-color-text-neutral-low, #6f6f71);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  pointer-events: auto;
+  cursor: pointer;
+  background-color: var(--sys-color-bg-surfaces-surface, #fff);
+  border-radius: 2px;
+  /* Cubre stroke 1–2px bajo el glifo (focus/hover/error) */
+  box-shadow: 0 0 0 3px var(--sys-color-bg-surfaces-surface, #fff);
+}
+
+.req {
+  font-weight: var(--sys-typography-weight-bold, 700);
+  color: var(--sys-color-text-feedback-danger, #821c1e);
+  opacity: 0.8;
+}
+
+.icons-text {
+  display: flex;
+  align-items: center;
+  gap: var(--sys-gap-base-xs, 8px);
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.field:focus-within {
+  border-width: 2px;
+  border-color: var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  padding: calc(var(--siaf-field-padding-y, 8px) - 1px) calc(var(--siaf-field-padding-x, 16px) - 1px);
+  box-shadow: none;
+}
+
+:host(.compact) .field:focus-within {
+  padding: 3px calc(var(--siaf-field-padding-x, 16px) - 1px);
+}
+
+.field:hover:not(:focus-within) {
+  border-width: 2px;
+  border-color: var(--sys-color-border-states-hover, rgba(1, 72, 153, 0.56));
+  padding: calc(var(--siaf-field-padding-y, 8px) - 1px) calc(var(--siaf-field-padding-x, 16px) - 1px);
+}
+
+:host(.compact) .field:hover:not(:focus-within) {
+  padding: 3px calc(var(--siaf-field-padding-x, 16px) - 1px);
+}
+
+:host(.disabled) .field:hover:not(:focus-within) {
+  border-width: 1px;
+  border-color: var(--sys-color-border-states-disabled, rgba(32, 32, 32, 0.12));
+  padding: var(--siaf-field-padding-y, 8px) var(--siaf-field-padding-x, 16px);
+}
+
+:host(.invalid) .field {
+  border-width: 2px;
+  border-color: var(--sys-color-border-feedback-danger, #821c1e);
+  padding: calc(var(--siaf-field-padding-y, 8px) - 1px) calc(var(--siaf-field-padding-x, 16px) - 1px);
+}
+
+:host(.invalid) .field:focus-within {
+  border-width: 2px;
+  border-color: var(--sys-color-border-feedback-danger, #821c1e);
+}
+
+:host(.invalid) .field:hover:not(:focus-within) {
+  border-color: var(--sys-color-border-feedback-danger, #821c1e);
+}
+
+:host(.invalid) .label {
+  color: var(--sys-color-text-feedback-danger, #821c1e);
+}
+
+input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font: inherit;
+  font-size: var(--siaf-field-font-size, var(--sys-typography-size-body-2, 14px));
+  font-weight: var(--sys-typography-weight-regular, 400);
+  line-height: 1;
+  letter-spacing: 0.0249px;
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  padding: 0;
+}
+
+input::placeholder {
+  color: var(--sys-color-text-neutral-disabled, #868688);
+}
+
+:host(.disabled) .field {
+  background: var(--sys-color-bg-surfaces-disabled, #ededed);
+  border-color: var(--sys-color-border-states-disabled, rgba(32, 32, 32, 0.12));
+}
+
+:host(.disabled) input {
+  color: var(--sys-color-text-neutral-disabled, #868688);
+}
+
+:host(.disabled) .label {
+  color: var(--sys-color-text-neutral-disabled, #868688);
+  background-color: var(--sys-color-bg-surfaces-disabled, #ededed);
+  box-shadow: 0 0 0 3px var(--sys-color-bg-surfaces-disabled, #ededed);
+}
+
+.msg {
+  margin-top: 0;
+  padding: 4px 16px 0;
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  color: var(--sys-color-text-feedback-default, #29292a);
+}
+
+.msg.error {
+  color: var(--sys-color-text-feedback-danger, #821c1e);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

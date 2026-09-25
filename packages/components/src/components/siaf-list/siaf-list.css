@@ -1,0 +1,70 @@
+:host {
+  display: block;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+}
+
+/**
+ * Lists Kit 7435:26988 (Standard · 2 line):
+ * state-layer pad 12/16 · gap 16 · r4 · min-h 48 · divider opcional 1px @12%
+ */
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  border-bottom: 1px solid var(--sys-color-divider-default, rgba(32, 32, 32, 0.12));
+}
+
+li:last-child {
+  border-bottom: 0;
+}
+
+.item {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 48px;
+  text-align: left;
+  border: 0;
+  border-radius: var(--sys-border-radius-small, 4px);
+  background: transparent;
+  cursor: pointer;
+  padding: var(--sys-padding-base-sm, 12px) var(--sys-padding-base-md, 16px);
+  font: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--sys-gap-base-xxs, 4px);
+  color: var(--sys-color-text-neutral-medium, #29292a);
+}
+
+.item:hover:not(:disabled) {
+  background: var(--sys-color-bg-states-light-hover, rgba(32, 32, 32, 0.04));
+}
+
+.item.selected {
+  background: var(--sys-color-bg-states-light-selected, rgba(1, 72, 153, 0.08));
+  color: var(--sys-color-text-brand-primary, #014899);
+}
+
+.item:disabled {
+  color: var(--sys-color-text-neutral-disabled, #868688);
+  cursor: not-allowed;
+}
+
+.label {
+  font-size: var(--sys-typography-size-body-2, 14px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  letter-spacing: 0.025px;
+  line-height: normal;
+}
+
+.sec {
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  font-weight: var(--sys-typography-weight-regular, 400);
+  color: var(--sys-color-text-neutral-low, #6f6f71);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

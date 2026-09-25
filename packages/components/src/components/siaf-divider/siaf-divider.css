@@ -1,0 +1,7 @@
+:host {
+  display: block;
+  background: var(--sys-color-divider-default, rgba(32, 32, 32, 0.12));
+  border: 0;
+}
+:host([orientation='horizontal']) { width: 100%; height: var(--sys-border-linear-thin, 1px); margin: var(--sys-gap-base-sm, 12px) 0; }
+:host([orientation='vertical']) { width: var(--sys-border-linear-thin, 1px); height: 1.5em; margin: 0 var(--sys-gap-base-sm, 12px); display: inline-block; vertical-align: middle; }

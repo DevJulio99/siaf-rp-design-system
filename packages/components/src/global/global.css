@@ -1,0 +1,24 @@
+/**
+ * Global styles loaded by Stencil into the light DOM (document).
+ * Tokens must be present on :root — import @siaf-rp/tokens CSS in the host page.
+ * Tipografía Inter: cargar Google Fonts (o siaf-fonts.css) en el HTML host;
+ * este archivo solo referencia el token, no descarga la fuente.
+ */
+
+:host,
+:root {
+  /* fallbacks if tokens CSS is missing — brand primary from Kit */
+  --siaf-fallback-primary: #014899;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  font-size: var(--sys-typography-size-body-2, 14px);
+  color: var(--sys-color-text-neutral-high, #202020);
+  background: var(--sys-color-bg-surfaces-surface, #fff);
+}

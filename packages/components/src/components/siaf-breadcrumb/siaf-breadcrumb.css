@@ -1,0 +1,85 @@
+:host {
+  display: block;
+  font-family: var(--sys-typography-font-family-base, Inter, system-ui, sans-serif);
+  font-size: var(--siaf-breadcrumb-font-size, var(--sys-typography-size-caption-1, 12px));
+}
+
+/**
+ * breadcrumbs (UI Kit · 7118:19582):
+ * h40 · pad 4/16 · gap 4 · caption 12 · sep keyboard_arrow_right 12 #4b4b4d
+ * home Icon button 32 (icon 20) · crumb Medium #29292a · current Regular #6f6f71
+ */
+ol {
+  list-style: none;
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--siaf-breadcrumb-gap, 4px);
+  min-height: var(--siaf-breadcrumb-height, 40px);
+  padding: var(--siaf-breadcrumb-padding-y, 4px) var(--siaf-breadcrumb-padding-x, 16px);
+}
+
+.home {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 32px;
+  min-height: 32px;
+  padding: 4px;
+  border-radius: var(--sys-border-radius-medium, 8px);
+  color: var(--sys-color-icon-states-enabled, #4b4b4d);
+  text-decoration: none;
+  flex: none;
+}
+
+.home:hover {
+  background: var(--sys-color-bg-states-light-hover, rgba(32, 32, 32, 0.04));
+}
+
+.home:focus-visible {
+  outline: 2px solid var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  outline-offset: 2px;
+}
+
+li {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--siaf-breadcrumb-gap, 4px);
+  color: var(--sys-color-text-neutral-medium, #29292a);
+  font-weight: var(--sys-typography-weight-medium, 500);
+  font-size: var(--sys-typography-size-caption-1, 12px);
+  line-height: normal;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--sys-color-border-states-focus, rgba(1, 72, 153, 0.8));
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+[aria-current='page'] {
+  color: var(--sys-color-text-neutral-low, #6f6f71);
+  font-weight: var(--sys-typography-weight-regular, 400);
+}
+
+.sep {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 12px;
+  height: 12px;
+  color: var(--sys-color-icon-states-enabled, #4b4b4d);
+  flex: none;
+}
