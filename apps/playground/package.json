@@ -11,7 +11,7 @@
     "build": "node ./scripts/prepare.mjs"
   },
   "dependencies": {
-    "@siaf-rp/components": "0.1.0",
+    "@siaf-rp/components": "0.1.1",
     "@siaf-rp/tokens": "0.1.0"
   },
   "license": "UNLICENSED"
